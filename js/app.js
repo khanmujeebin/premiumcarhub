@@ -1,6 +1,6 @@
 
 // Replace with your live Payment Links
-const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/test_xyz';
+const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/14A28teIvfcEbBRaxuf7i00';
 const PAYPAL_CHECKOUT_LINK = 'https://www.paypal.com/checkoutnow?token=TESTTOKEN';
 
 const inventory = [
