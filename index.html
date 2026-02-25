@@ -1,54 +1,46 @@
 
 <!doctype html>
-<html lang='en'>
+<html lang="en">
 <head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PremiumCarHub – Quality Used Cars | Finance & Trade‑In</title>
-  <meta name='description' content='PremiumCarHub.com.au – Quality used cars in Minto NSW 2566. Drag to cart, choose Sale or Finance, and checkout via Stripe or PayPal. Trade‑in and finance pre‑approval available.'>
-  <link rel='icon' href='/favicon.png'>
-  <link rel='stylesheet' href='/css/styles.css'>
+  <meta name="description" content="PremiumCarHub.com.au – Quality used cars in Minto NSW 2566. Finance & Trade‑In. Pay with Stripe or PayPal.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<header>
-  <div class='container nav'>
-    <div style='display:flex;align-items:center;gap:12px'>
-      <img src='/assets/logo.png' alt='PremiumCarHub logo' height='44'>
-      <strong>PremiumCarHub.com.au</strong>
-    </div>
-    <nav>
-      <a href='#inventory'>Used Cars</a>
-      <a href='#finance'>Finance</a>
-      <a href='#preapproval'>Pre‑Approval</a>
-      <a href='#tradein'>Trade‑In</a>
-      <a href='#contact'>Contact</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <img src="/assets/logo.png" alt="PremiumCarHub logo" class="logo">
+    <nav class="nav">
+      <a href="#inventory">Used Cars</a>
+      <a href="#finance">Finance</a>
+      <a href="#preapproval">Pre‑Approval</a>
+      <a href="#tradein">Trade‑In</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<section class='hero'>
-  <div class='container'>
+<section class="hero">
+  <div class="container">
     <h1>Quality Used Cars. Easy Finance.</h1>
     <p>Drag any car card into the cart to choose <strong>Sale</strong> or <strong>Finance</strong>. Pay with <strong>Stripe</strong> or <strong>PayPal</strong> at checkout.</p>
-    <div style='margin-top:16px'>
-      <a class='btn btn-primary' href='#inventory'>Browse Used Cars</a>
-      <a class='btn btn-outline' href='#preapproval'>Get Finance Pre‑Approval</a>
-    </div>
-    <div class='kpi'>
-      <div>Located: Minto NSW 2566</div>
-      <div>Finance & Trade‑In Available</div>
-      <div>ABN tax invoices</div>
+    <div class="cta">
+      <a class="btn btn-primary" href="#inventory">Browse Used Cars</a>
+      <a class="btn btn-outline" href="#preapproval">Get Finance Pre‑Approval</a>
     </div>
   </div>
 </section>
 
-<section id='inventory' class='section'>
-  <div class='container'>
+<section id="inventory" class="section">
+  <div class="container">
     <h2>Used Cars for Sale</h2>
-    <div class='inventory-toolbar'>
-      <input type='search' id='search' placeholder='Search make or model' oninput='filterInventory()'>
-      <select id='make' onchange='filterInventory()'>
-        <option value=''>All Makes</option>
+    <div class="inventory-toolbar">
+      <input type="search" id="search" placeholder="Search make or model" oninput="filterInventory()">
+      <select id="make" onchange="filterInventory()">
+        <option value="">All Makes</option>
         <option>Toyota</option>
         <option>Tesla</option>
         <option>Mazda</option>
@@ -56,14 +48,13 @@
         <option>Hyundai</option>
       </select>
     </div>
-    <div id='inventoryGrid' class='grid'></div>
+    <div id="inventoryGrid" class="grid"></div>
   </div>
 </section>
 
-<section id='finance' class='section' style='background:#eef5ff'>
-  <div class='container'>
+<section id="finance" class="section alt">
+  <div class="container">
     <h2>Finance Options</h2>
-    <p>Switch to <strong>Finance</strong> in the cart to estimate repayments. For accurate quotes, complete the <a href='#preapproval'>pre‑approval form</a>.</p>
     <ul>
       <li>Secured used‑car loans</li>
       <li>Balloon / residual options</li>
@@ -72,134 +63,133 @@
   </div>
 </section>
 
-<section id='preapproval' class='section'>
-  <div class='container'>
+<section id="preapproval" class="section">
+  <div class="container">
     <h2>Finance Pre‑Approval</h2>
-    <div class='alert'>Demo only: this form sends details via email link. Replace with your finance partner or CRM endpoint.</div>
-    <form class='form' onsubmit='return submitPreApproval(event)'>
-      <div class='row'>
+    <form class="form" onsubmit="return submitPreApproval(event)">
+      <div class="row">
         <div>
-          <label for='paName'>Full Name</label>
-          <input id='paName' required>
+          <label for="paName">Full Name</label>
+          <input id="paName" required>
         </div>
         <div>
-          <label for='paPhone'>Phone</label>
-          <input id='paPhone' type='tel' value='+61 470 469 919' required>
-        </div>
-      </div>
-      <div class='row'>
-        <div>
-          <label for='paEmail'>Email</label>
-          <input id='paEmail' type='email' required>
-        </div>
-        <div>
-          <label for='paSuburb'>Suburb</label>
-          <input id='paSuburb' value='Minto NSW 2566'>
+          <label for="paPhone">Phone</label>
+          <input id="paPhone" type="tel" value="+61 470 469 919" required>
         </div>
       </div>
-      <div class='row'>
+      <div class="row">
         <div>
-          <label for='paCar'>Car of Interest</label>
-          <input id='paCar' placeholder='e.g., 2021 Mazda CX‑5'>
+          <label for="paEmail">Email</label>
+          <input id="paEmail" type="email" required>
         </div>
         <div>
-          <label for='paDeposit'>Deposit (AUD)</label>
-          <input id='paDeposit' type='number' min='0' step='500'>
+          <label for="paSuburb">Suburb</label>
+          <input id="paSuburb" value="Minto NSW 2566">
         </div>
       </div>
-      <div class='row'>
+      <div class="row">
         <div>
-          <label for='paTerm'>Term</label>
-          <select id='paTerm'>
+          <label for="paCar">Car of Interest</label>
+          <input id="paCar" placeholder="e.g., 2021 Mazda CX‑5">
+        </div>
+        <div>
+          <label for="paDeposit">Deposit (AUD)</label>
+          <input id="paDeposit" type="number" min="0" step="500">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="paTerm">Term</label>
+          <select id="paTerm">
             <option>36 months</option>
             <option selected>60 months</option>
             <option>72 months</option>
           </select>
         </div>
         <div>
-          <label for='paIncome'>Monthly Income (AUD)</label>
-          <input id='paIncome' type='number' min='0' step='100'>
+          <label for="paIncome">Monthly Income (AUD)</label>
+          <input id="paIncome" type="number" min="0" step="100">
         </div>
       </div>
-      <label><input type='checkbox' id='paConsent' required> I consent to be contacted about finance options.</label>
-      <div style='margin-top:12px'>
-        <button class='btn btn-primary' type='submit'>Submit Pre‑Approval</button>
+      <label><input type="checkbox" id="paConsent" required> I consent to be contacted about finance options.</label>
+      <div class="actions">
+        <button class="btn btn-primary" type="submit">Submit Pre‑Approval</button>
       </div>
     </form>
   </div>
 </section>
 
-<section id='tradein' class='section' style='background:#f7fbff'>
-  <div class='container'>
+<section id="tradein" class="section alt">
+  <div class="container">
     <h2>Trade‑In Appraisal</h2>
-    <form class='form' onsubmit='return submitTradeIn(event)'>
-      <div class='row'>
+    <form class="form" onsubmit="return submitTradeIn(event)">
+      <div class="row">
         <div>
-          <label for='tiName'>Full Name</label>
-          <input id='tiName' required>
+          <label for="tiName">Full Name</label>
+          <input id="tiName" required>
         </div>
         <div>
-          <label for='tiPhone'>Phone</label>
-          <input id='tiPhone' type='tel' value='+61 470 469 919' required>
-        </div>
-      </div>
-      <div class='row'>
-        <div>
-          <label for='tiEmail'>Email</label>
-          <input id='tiEmail' type='email' required>
-        </div>
-        <div>
-          <label for='tiSuburb'>Suburb</label>
-          <input id='tiSuburb' value='Minto NSW 2566'>
+          <label for="tiPhone">Phone</label>
+          <input id="tiPhone" type="tel" value="+61 470 469 919" required>
         </div>
       </div>
-      <div class='row'>
+      <div class="row">
         <div>
-          <label for='tiMake'>Your Car Make/Model</label>
-          <input id='tiMake' placeholder='e.g., 2018 Toyota Corolla Ascent'>
+          <label for="tiEmail">Email</label>
+          <input id="tiEmail" type="email" required>
         </div>
         <div>
-          <label for='tiKm'>Odometer (km)</label>
-          <input id='tiKm' type='number' min='0' step='1000'>
+          <label for="tiSuburb">Suburb</label>
+          <input id="tiSuburb" value="Minto NSW 2566">
         </div>
       </div>
-      <label for='tiNotes'>Condition / Notes</label>
-      <textarea id='tiNotes' rows='4' placeholder='Condition, service history, damage, extras'></textarea>
-      <div style='margin-top:12px'>
-        <button class='btn btn-primary' type='submit'>Request Appraisal</button>
+      <div class="row">
+        <div>
+          <label for="tiMake">Your Car Make/Model</label>
+          <input id="tiMake" placeholder="e.g., 2018 Toyota Corolla Ascent">
+        </div>
+        <div>
+          <label for="tiKm">Odometer (km)</label>
+          <input id="tiKm" type="number" min="0" step="1000">
+        </div>
+      </div>
+      <label for="tiNotes">Condition / Notes</label>
+      <textarea id="tiNotes" rows="4" placeholder="Condition, service history, damage, extras"></textarea>
+      <div class="actions">
+        <button class="btn btn-primary" type="submit">Request Appraisal</button>
       </div>
     </form>
   </div>
 </section>
 
-<section id='contact' class='section'>
-  <div class='container'>
+<section id="contact" class="section">
+  <div class="container">
     <h2>Contact & Location</h2>
     <p>Email: sales@premiumcarhub.com.au · Phone: +61 470 469 919</p>
     <p>Address: Minto NSW 2566</p>
   </div>
 </section>
 
-<div class='cart' id='cartBox'>
+<div class="cart" id="cartBox">
   <h3>Your Cart</h3>
-  <div id='cartLines'></div>
-  <div class='checkout'>
-    <div><strong>Subtotal:</strong> <span id='subtotal'>$0</span></div>
-    <div style='display:flex;gap:8px;flex-wrap:wrap'>
-      <button class='btn btn-primary' onclick='checkoutStripe()'>Pay with Stripe</button>
-      <button class='btn btn-outline' style='color:#000;border-color:#000' onclick='checkoutPayPal()'>Pay with PayPal</button>
+  <div id="cartLines"></div>
+  <div class="checkout">
+    <div><strong>Subtotal:</strong> <span id="subtotal">$0</span></div>
+    <div class="payBtns">
+      <button class="btn btn-primary" onclick="checkoutStripe()">Pay with Stripe</button>
+      <button class="btn btn-outline" onclick="checkoutPayPal()">Pay with PayPal</button>
     </div>
   </div>
 </div>
 
-<footer class='footer'>
-  <div class='container'>
-    <div>© <span id='year'></span> PremiumCarHub.com.au · All rights reserved.</div>
+<footer class="footer">
+  <div class="container">
+    <div>© <span id="year"></span> PremiumCarHub.com.au · All rights reserved.</div>
     <div>ABN: 35666426651 · Phone: +61 470 469 919 · Minto NSW 2566</div>
   </div>
 </footer>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
-<script src='/js/app.js'></script>
+<script src="/js/app.js"></script>
 </body>
 </html>
