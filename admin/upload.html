@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Upload Inventory Image</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body style="font-family:Arial; max-width:600px; margin:auto;">
+
+<h2>Upload Car Image</h2>
+
+<label>Admin PIN:</label><br>
+<input id="pin" type="password" placeholder="Enter secret" style="width:100%; padding:8px;"><br><br>
+
+<label>Car SKU (e.g., CAR-001):</label><br>
+<input id="sku" type="text" placeholder="CAR-001" style="width:100%; padding:8px;"><br><br>
+
+<label>Photo:</label><br>
+<input id="file" type="file" accept="image/*" capture="environment" style="padding:8px;"><br><br>
+
+<button onclick="uploadFile()" style="padding:10px 15px;">Upload</button>
+
+<p id="status"></p>
+<p id="url"></p>
+
+<script type="module">
+import { upload } from "https://cdn.skypack.dev/@vercel/blob/client";
+
+async function uploadFile() {
+    const pin = document.getElementById("pin").value.trim();
+    const sku = document.getElementById("sku").value.trim();
+    const file = document.getElementById("file").files[0];
+
+    if (!pin || !sku || !file) {
+        document.getElementById("status").innerText = "Please fill all fields.";
+        return;
+    }
+
+    document.getElementById("status").innerText = "Uploading...";
+
+    const ext = file.type.includes("png") ? "png" : file.type.includes("webp") ? "webp" : "jpg";
+    const pathname = `inventory/${sku}/current.${ext}`;
+
+    try {
+        const result = await upload(pathname, file, {
+            access: "public",
+            handleUploadUrl: "/api/upload",
+            headers: { Authorization: `Bearer ${pin}` },
+        });
+
+        document.getElementById("status").innerText = "Uploaded Successfully!";
+        document.getElementById("url").innerHTML =
+            `Image URL: <aresult.url}${result.url}</a>`;
+    } catch (err) {
+        document.getElementById("status").innerText = "Upload failed: " + err.message;
+    }
+}
+</script>
+
+</body>
+</html>
