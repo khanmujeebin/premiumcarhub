@@ -9,10 +9,10 @@
 <h2>Upload Car Image</h2>
 
 <label>Admin PIN:</label><br>
-<input id="pin" type="password" placeholder="Enter secret" style="width:100%; padding:8px; margin-bottom:12px;"><br>
+<input id="pin" type="password" placeholder="Enter secret" style="width:100%; padding:8px; margin-bottom:12px;">
 
 <label>Car SKU (e.g., CAR-001):</label><br>
-<input id="sku" type="text" placeholder="CAR-001" style="width:100%; padding:8px; margin-bottom:12px;"><br>
+<input id="sku" type="text" placeholder="CAR-001" style="width:100%; padding:8px; margin-bottom:12px;">
 
 <label>Photo:</label><br>
 <input id="file" type="file" accept="image/*" capture="environment" style="padding:8px; margin-bottom:12px;"><br>
@@ -22,10 +22,8 @@
 <p id="status" style="margin-top:12px;"></p>
 <p id="url" style="margin-top:8px; word-break:break-all;"></p>
 
-<script type="module">
-import { upload } from "https://cdn.skypack.dev/@vercel/blob/client";
-
-window.uploadFile = async function() {
+<script>
+async function uploadFile() {
     const pin  = document.getElementById("pin").value.trim();
     const sku  = document.getElementById("sku").value.trim();
     const file = document.getElementById("file").files[0];
@@ -37,22 +35,36 @@ window.uploadFile = async function() {
 
     document.getElementById("status").innerText = "Uploading...";
 
-    const ext = file.type.includes("png")  ? "png"
-              : file.type.includes("webp") ? "webp"
-              : "jpg";
-
-    const pathname = `inventory/${sku}/current.${ext}`;
-
     try {
-        const result = await upload(pathname, file, {
-            access: "public",
-            handleUploadUrl: "/api/upload",
-            headers: { Authorization: `Bearer ${pin}` },
+        // Step 1: Get upload URL from our API
+        const tokenRes = await fetch("/api/upload", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${pin}`
+            },
+            body: JSON.stringify({ filename: file.name, contentType: file.type })
         });
+
+        if (!tokenRes.ok) {
+            const err = await tokenRes.json();
+            throw new Error(err.error || "Failed to get upload token");
+        }
+
+        const { uploadUrl, publicUrl } = await tokenRes.json();
+
+        // Step 2: Upload directly to Vercel Blob
+        const uploadRes = await fetch(uploadUrl, {
+            method: "PUT",
+            headers: { "Content-Type": file.type },
+            body: file
+        });
+
+        if (!uploadRes.ok) throw new Error("Upload to storage failed");
 
         document.getElementById("status").innerText = "✅ Uploaded Successfully!";
         document.getElementById("url").innerHTML =
-            `Image URL: <a href="${result.url}" target="_blank">${result.url}</a>`;
+            `Image URL: <a href="${publicUrl}" target="_blank">${publicUrl}</a>`;
 
     } catch (err) {
         document.getElementById("status").innerText = "❌ Upload failed: " + err.message;
