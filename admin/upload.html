@@ -5,40 +5,42 @@
 <title>Upload Inventory Image</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
-<body style="font-family:Arial; max-width:600px; margin:auto;">
-
+<body style="font-family:Arial; max-width:600px; margin:auto; padding:20px;">
 <h2>Upload Car Image</h2>
 
 <label>Admin PIN:</label><br>
-<input id="pin" type="password" placeholder="Enter secret" style="width:100%; padding:8px;"><br><br>
+<input id="pin" type="password" placeholder="Enter secret" style="width:100%; padding:8px; margin-bottom:12px;"><br>
 
 <label>Car SKU (e.g., CAR-001):</label><br>
-<input id="sku" type="text" placeholder="CAR-001" style="width:100%; padding:8px;"><br><br>
+<input id="sku" type="text" placeholder="CAR-001" style="width:100%; padding:8px; margin-bottom:12px;"><br>
 
 <label>Photo:</label><br>
-<input id="file" type="file" accept="image/*" capture="environment" style="padding:8px;"><br><br>
+<input id="file" type="file" accept="image/*" capture="environment" style="padding:8px; margin-bottom:12px;"><br>
 
-<button onclick="uploadFile()" style="padding:10px 15px;">Upload</button>
+<button onclick="uploadFile()" style="padding:10px 20px; background:#e8a020; border:none; border-radius:6px; font-weight:bold; cursor:pointer;">Upload</button>
 
-<p id="status"></p>
-<p id="url"></p>
+<p id="status" style="margin-top:12px;"></p>
+<p id="url" style="margin-top:8px; word-break:break-all;"></p>
 
 <script type="module">
 import { upload } from "https://cdn.skypack.dev/@vercel/blob/client";
 
-async function uploadFile() {
-    const pin = document.getElementById("pin").value.trim();
-    const sku = document.getElementById("sku").value.trim();
+window.uploadFile = async function() {
+    const pin  = document.getElementById("pin").value.trim();
+    const sku  = document.getElementById("sku").value.trim();
     const file = document.getElementById("file").files[0];
 
     if (!pin || !sku || !file) {
-        document.getElementById("status").innerText = "Please fill all fields.";
+        document.getElementById("status").innerText = "⚠️ Please fill all fields.";
         return;
     }
 
     document.getElementById("status").innerText = "Uploading...";
 
-    const ext = file.type.includes("png") ? "png" : file.type.includes("webp") ? "webp" : "jpg";
+    const ext = file.type.includes("png")  ? "png"
+              : file.type.includes("webp") ? "webp"
+              : "jpg";
+
     const pathname = `inventory/${sku}/current.${ext}`;
 
     try {
@@ -48,17 +50,14 @@ async function uploadFile() {
             headers: { Authorization: `Bearer ${pin}` },
         });
 
-        document.getElementById("status").innerText = "Uploaded Successfully!";
+        document.getElementById("status").innerText = "✅ Uploaded Successfully!";
         document.getElementById("url").innerHTML =
-            `Image URL: <aresult.url}${result.url}</a>`;
+            `Image URL: <a href="${result.url}" target="_blank">${result.url}</a>`;
+
     } catch (err) {
-        document.getElementById("status").innerText = "Upload failed: " + err.message;
-        const ADMIN_PIN = 'CarHub2025!23';
+        document.getElementById("status").innerText = "❌ Upload failed: " + err.message;
     }
 }
 </script>
-
 </body>
 </html>
-// ✅ FIXED
-`Image URL: <a href="${result.url}" target="_blank">${result.url}</a>`
