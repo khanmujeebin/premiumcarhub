@@ -12,32 +12,27 @@ module.exports = async function handler(req, res) {
     // Upload image to Vercel Blob
     let imageUrl = '';
     if (fileData && filename && contentType) {
-      const base64Data = fileData.includes(',') 
-        ? fileData.split(',')[1] 
-        : fileData;
-      
-      if (base64Data) {
-        const buffer = Buffer.from(base64Data, 'base64');
-        const ext = filename.split('.').pop().toLowerCase();
-        const pathname = `inventory/${Date.now()}.${ext}`;
+      const buffer = Buffer.from(fileData, 'base64');
+      const ext = filename.split('.').pop().toLowerCase();
+      const pathname = `inventory/${Date.now()}.${ext}`;
 
-        const uploadRes = await fetch(`https://blob.vercel-storage.com/${pathname}`, {
-          method: 'PUT',
-          headers: {
-            'Authorization': `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}`,
-            'Content-Type': contentType,
-            'x-api-version': '7',
-          },
-          body: buffer,
-        });
-        const blob = await uploadRes.json();
-        imageUrl = blob.url || '';
-      }
+      const uploadRes = await fetch(`https://blob.vercel-storage.com/${pathname}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}`,
+          'Content-Type': contentType,
+          'x-api-version': '7',
+        },
+        body: buffer,
+      });
+      const blob = await uploadRes.json();
+      imageUrl = blob.url || '';
     }
 
     // Save car to GitHub inventory.json
     if (carData) {
-      const car = typeof carData === 'string' ? JSON.parse(carData) : carData;
+      // carData arrives as a plain object (already parsed by express)
+      const car = carData;
       if (imageUrl) car.images = [imageUrl];
       car.id = Date.now();
 
@@ -51,12 +46,18 @@ module.exports = async function handler(req, res) {
       const repo  = process.env.GITHUB_REPO;
       const path  = 'data/inventory.json';
 
+      // Get current inventory.json
       const getRes  = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, { headers: ghHeaders });
       const getJson = await getRes.json();
-      const current = JSON.parse(Buffer.from(getJson.content, 'base64').toString('utf8'));
 
+      if (!getJson.content) {
+        return res.status(500).json({ error: 'Could not read inventory.json from GitHub: ' + JSON.stringify(getJson) });
+      }
+
+      const current = JSON.parse(Buffer.from(getJson.content, 'base64').toString('utf8'));
       current.unshift(car);
 
+      // Save back to GitHub
       const putRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
         method: 'PUT',
         headers: ghHeaders,
