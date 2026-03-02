@@ -33,7 +33,6 @@
   .tab.active { background: var(--accent); color: #000; }
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 18px; }
   .card-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
   .full { grid-column: 1 / -1; }
   label { display: block; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .5px; margin-bottom: 5px; text-transform: uppercase; }
@@ -65,8 +64,6 @@
   .car-name { font-weight: 700; font-size: 14px; }
   .car-meta { font-size: 12px; color: var(--muted); margin-top: 3px; }
   .car-price { font-weight: 800; font-size: 16px; color: var(--accent); white-space: nowrap; }
-  .btn-del { background: transparent; border: 1px solid var(--border); color: var(--muted); border-radius: 8px; padding: 6px 12px; font-size: 12px; cursor: pointer; }
-  .btn-del:hover { border-color: var(--danger); color: var(--danger); }
   .empty { text-align: center; padding: 50px 20px; color: var(--muted); font-size: 15px; }
   #resultBox { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-top: 16px; font-size: 13px; display: none; word-break: break-all; line-height: 1.8; }
   #resultBox a { color: var(--accent); }
@@ -74,7 +71,7 @@
   #toast.show { transform: translateY(0); opacity: 1; }
   #toast.success { border-color: var(--success); color: var(--success); }
   #toast.error { border-color: var(--danger); color: var(--danger); }
-  @media (max-width: 600px) { .grid2, .grid3 { grid-template-columns: 1fr; } .full { grid-column: 1; } header { padding: 0 14px; } }
+  @media (max-width: 600px) { .grid3 { grid-template-columns: 1fr; } .full { grid-column: 1; } header { padding: 0 14px; } }
 </style>
 </head>
 <body>
@@ -203,11 +200,9 @@
     </div>
 
     <div id="tab-inventory" style="display:none">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px">
-        <div>
-          <div style="font-size:20px;font-weight:700">Current Inventory</div>
-          <div style="font-size:13px;color:var(--muted);margin-top:3px">All live listings from your website</div>
-        </div>
+      <div style="margin-bottom:20px">
+        <div style="font-size:20px;font-weight:700">Current Inventory</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:3px">All live listings from your website</div>
       </div>
       <div id="carList" class="car-list"></div>
     </div>
@@ -256,7 +251,10 @@ function handleFiles(files) {
   Array.from(files).forEach(function(file) {
     if (!file.type.startsWith('image/')) return;
     var reader = new FileReader();
-    reader.onload = function(e) { images.push({ name: file.name, type: file.type, data: e.target.result }); renderPreviews(); };
+    reader.onload = function(e) {
+      images.push({ name: file.name, type: file.type, data: e.target.result });
+      renderPreviews();
+    };
     reader.readAsDataURL(file);
   });
 }
@@ -295,13 +293,14 @@ async function saveListing() {
   var sku   = document.getElementById('sku').value.trim();
 
   if (!year || !make || !model || !price || !sku) {
-    showToast('Please fill in Year, Make, Model, Price and SKU.', 'error'); return;
+    showToast('Please fill in Year, Make, Model, Price and SKU.', 'error');
+    return;
   }
 
   document.getElementById('saveStatus').textContent = 'Saving...';
   document.getElementById('resultBox').style.display = 'none';
 
-  // Build car object
+  // Build car object — plain object, NOT stringified
   var car = {
     id:            Date.now(),
     sku:           sku,
@@ -326,19 +325,18 @@ async function saveListing() {
   };
 
   try {
-    // Upload first image if exists
-    var fileData    = images.length > 0 ? images[0].data : null;
-    var contentType = images.length > 0 ? images[0].type : null;
-    var filename    = images.length > 0 ? sku + '-img0.' + images[0].type.split('/')[1] : null;
-
+    // Build payload — carData is a plain object (NOT JSON.stringify)
     var payload = {
-      carData: JSON.stringify(car)
+      carData: car
     };
 
-    if (fileData) {
-      payload.fileData    = fileData;
-      payload.contentType = contentType;
-      payload.filename    = filename;
+    // Add image data if photo selected
+    if (images.length > 0) {
+      var imgData = images[0].data;
+      var base64  = imgData.includes(',') ? imgData.split(',')[1] : imgData;
+      payload.fileData    = base64;
+      payload.contentType = images[0].type;
+      payload.filename    = sku + '-img0.' + images[0].type.split('/')[1];
     }
 
     var res = await fetch('/api/upload', {
@@ -372,14 +370,18 @@ async function saveListing() {
 }
 
 function resetForm() {
-  ['year','make','model','variant','body','colour','odo','trans','fuel','rego','status','desc','price','financeWeekly','deposit','sku','stripeLink','paypalLink','bankDetails'].forEach(function(id){
+  ['year','make','model','variant','body','colour','odo','trans','fuel',
+   'rego','status','desc','price','financeWeekly','deposit','sku',
+   'stripeLink','paypalLink','bankDetails'].forEach(function(id){
     var el = document.getElementById(id);
     if (!el) return;
     el.tagName === 'SELECT' ? (el.selectedIndex = 0) : (el.value = '');
   });
   document.querySelectorAll('.pay-toggle input').forEach(function(cb){ cb.checked = false; });
   document.querySelectorAll('.pay-toggle').forEach(function(t){ t.classList.remove('checked'); });
-  ['stripeField','paypalField','bankField'].forEach(function(id){ document.getElementById(id).style.display = 'none'; });
+  ['stripeField','paypalField','bankField'].forEach(function(id){
+    document.getElementById(id).style.display = 'none';
+  });
   images = [];
   renderPreviews();
 }
@@ -388,17 +390,22 @@ async function renderInventory() {
   var list = document.getElementById('carList');
   list.innerHTML = '<div class="empty">Loading...</div>';
   try {
-    var res  = await fetch('/data/inventory.json');
+    var res  = await fetch('/data/inventory.json?t=' + Date.now());
     var cars = await res.json();
     if (!cars.length) {
-      list.innerHTML = '<div class="empty">🚗 No listings yet. Add your first car!</div>'; return;
+      list.innerHTML = '<div class="empty">🚗 No listings yet. Add your first car!</div>';
+      return;
     }
     list.innerHTML = cars.map(function(c) {
       return '<div class="car-row">' +
         '<img class="car-thumb" src="' + (c.images && c.images[0] ? c.images[0] : '') + '" alt="" onerror="this.style.background=\'var(--surface2)\';this.src=\'\'">' +
         '<div class="car-info">' +
-          '<div class="car-name">' + c.year + ' ' + c.make + ' ' + c.model + ' ' + (c.variant||'') + '</div>' +
-          '<div class="car-meta">' + (c.sku?'SKU: '+c.sku+' · ':'') + (c.odo?Number(c.odo).toLocaleString()+'km · ':'') + (c.trans||'') + ' · ' + (c.colour||'') + ' · ' + c.status + '</div>' +
+          '<div class="car-name">' + c.year + ' ' + c.make + ' ' + c.model + (c.variant ? ' ' + c.variant : '') + '</div>' +
+          '<div class="car-meta">' +
+            (c.sku ? 'SKU: ' + c.sku + ' · ' : '') +
+            (c.odo ? Number(c.odo).toLocaleString() + 'km · ' : '') +
+            (c.trans || '') + ' · ' + (c.colour || '') + ' · ' + c.status +
+          '</div>' +
         '</div>' +
         '<div class="car-price">$' + Number(c.price).toLocaleString() + '</div>' +
         '</div>';
@@ -410,7 +417,8 @@ async function renderInventory() {
 
 function showToast(msg, type) {
   var t = document.getElementById('toast');
-  t.textContent = msg; t.className = 'show ' + (type||'success');
+  t.textContent = msg;
+  t.className = 'show ' + (type || 'success');
   setTimeout(function(){ t.className = ''; }, 3200);
 }
 </script>
