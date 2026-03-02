@@ -1,5 +1,34 @@
 [
   {
+    "id": 1772494244117,
+    "sku": "CAR-002",
+    "year": "2014",
+    "make": "Toyota",
+    "model": "Kluger ",
+    "variant": "",
+    "body": "SUV",
+    "colour": "white ",
+    "odo": "139000",
+    "trans": "Automatic",
+    "fuel": "Petrol",
+    "rego": "",
+    "status": "available",
+    "desc": "This 2014 Toyota Kluger is in great condition with only 138,000 km on the odometer. It comes equipped with a powerful and reliable V6 engine, known for smooth performance and long‑term durability.\nThe car is full option, offering comfort, convenience, and safety features ideal for families or long‑distance driving.\nKey Features:\n\nStrong and smooth V6 engine\n138,000 km only\nFull-option model\nSpacious 7‑seater interior\nAutomatic transmission\nReverse camera + parking sensors\nBluetooth connectivity\nClimate control\nAlloy wheels\nWell-maintained, clean inside and out\nDrives perfectly with no issues\n\nThis Kluger is a perfect combination of power, reliability, and comfort—ready for its next owner.",
+    "price": "21990",
+    "financeWeekly": "",
+    "deposit": "",
+    "payment": {
+      "methods": [],
+      "stripeLink": "",
+      "paypalLink": "",
+      "bankDetails": ""
+    },
+    "images": [
+      "https://nxczj92hku0hlqra.public.blob.vercel-storage.com/inventory/1772494242212-AnDzZrh3BKgPuJFrAaFE0xbbpNuUbr.jpeg"
+    ],
+    "createdAt": "2026-03-02T23:30:38.954Z"
+  },
+  {
     "id": 1772423420633,
     "sku": "CAR-001",
     "year": "2003",
