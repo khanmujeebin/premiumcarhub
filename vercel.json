@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
+```
+
+4. Click **Commit changes**
+
+---
+
+## After Vercel Redeploys
+
+Test this URL again:
+```
+https://premiumcarhub.com.au/api/upload
