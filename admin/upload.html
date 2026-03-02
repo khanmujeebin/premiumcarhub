@@ -1,426 +1,50 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8" />
-<title>Upload Inventory | PremiumCarHub Admin</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #0d0f14; --surface: #161920; --surface2: #1e2230;
-    --border: #2a2f3e; --accent: #e8a020; --accent2: #f0c060;
-    --text: #e8eaf0; --muted: #7a8099; --success: #2ecc71; --danger: #e74c3c;
-    --radius: 10px;
+module.exports = async function handler(req, res) {
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  const token = req.headers.authorization?.replace('Bearer ', '');
+  if (!token || token !== process.env.ADMIN_PIN) {
+    return res.status(401).json({ error: 'Unauthorized' });
   }
-  body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-  #loginGate { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-  .login-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 48px 40px; width: 100%; max-width: 400px; text-align: center; }
-  .login-box .brand { font-size: 13px; font-weight: 700; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
-  .login-box h2 { font-size: 22px; font-weight: 700; margin-bottom: 28px; }
-  .login-box input { width: 100%; padding: 13px 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 15px; margin-bottom: 12px; outline: none; }
-  .login-box input:focus { border-color: var(--accent); }
-  .login-btn { width: 100%; padding: 13px; background: var(--accent); color: #000; border: none; border-radius: var(--radius); font-size: 15px; font-weight: 700; cursor: pointer; }
-  #loginError { color: var(--danger); font-size: 13px; margin-top: 10px; display: none; }
-  #app { display: none; }
-  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 62px; position: sticky; top: 0; z-index: 100; }
-  .header-logo { font-weight: 800; font-size: 16px; color: var(--accent); }
-  .header-badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 3px 12px; font-size: 11px; color: var(--muted); font-weight: 600; margin-left: 10px; }
-  .logout-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); border-radius: 8px; padding: 7px 16px; font-size: 13px; cursor: pointer; }
-  .logout-btn:hover { border-color: var(--danger); color: var(--danger); }
-  .main { max-width: 800px; margin: 0 auto; padding: 36px 20px 80px; }
-  .tabs { display: flex; gap: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 4px; margin-bottom: 30px; width: fit-content; }
-  .tab { padding: 9px 20px; border-radius: 9px; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--muted); background: transparent; border: none; }
-  .tab.active { background: var(--accent); color: #000; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 18px; }
-  .card-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
-  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-  .full { grid-column: 1 / -1; }
-  label { display: block; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .5px; margin-bottom: 5px; text-transform: uppercase; }
-  input, select, textarea { width: 100%; padding: 11px 13px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 14px; outline: none; }
-  input:focus, select:focus, textarea:focus { border-color: var(--accent); }
-  select option { background: var(--surface2); }
-  textarea { resize: vertical; min-height: 90px; }
-  .payment-options { display: flex; gap: 10px; flex-wrap: wrap; }
-  .pay-toggle { display: flex; align-items: center; gap: 8px; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 10px 16px; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--muted); user-select: none; }
-  .pay-toggle input { display: none; }
-  .pay-toggle.checked { border-color: var(--accent); color: var(--text); background: rgba(232,160,32,.1); }
-  .drop-zone { border: 2px dashed var(--border); border-radius: 12px; padding: 36px 20px; text-align: center; cursor: pointer; position: relative; }
-  .drop-zone:hover { border-color: var(--accent); background: rgba(232,160,32,.04); }
-  .drop-zone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
-  .drop-hint { font-size: 13px; color: var(--muted); margin-top: 6px; }
-  .drop-hint span { color: var(--accent); font-weight: 600; }
-  .preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; margin-top: 14px; }
-  .preview-item { position: relative; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
-  .preview-item img { width: 100%; height: 100%; object-fit: cover; }
-  .remove-img { position: absolute; top: 4px; right: 4px; background: rgba(0,0,0,.75); border: none; color: #fff; border-radius: 50%; width: 22px; height: 22px; font-size: 11px; cursor: pointer; }
-  .main-badge { position: absolute; bottom: 4px; left: 4px; background: var(--accent); color: #000; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; }
-  .btn-primary { padding: 13px 36px; background: var(--accent); color: #000; border: none; border-radius: var(--radius); font-size: 15px; font-weight: 700; cursor: pointer; }
-  .btn-primary:hover { background: var(--accent2); }
-  .btn-secondary { padding: 13px 24px; background: var(--surface2); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; }
-  .car-list { display: flex; flex-direction: column; gap: 12px; }
-  .car-row { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; }
-  .car-thumb { width: 70px; height: 52px; border-radius: 7px; object-fit: cover; background: var(--surface2); flex-shrink: 0; border: 1px solid var(--border); }
-  .car-info { flex: 1; }
-  .car-name { font-weight: 700; font-size: 14px; }
-  .car-meta { font-size: 12px; color: var(--muted); margin-top: 3px; }
-  .car-price { font-weight: 800; font-size: 16px; color: var(--accent); white-space: nowrap; }
-  .empty { text-align: center; padding: 50px 20px; color: var(--muted); font-size: 15px; }
-  #resultBox { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-top: 16px; font-size: 13px; display: none; word-break: break-all; line-height: 1.8; }
-  #resultBox a { color: var(--accent); }
-  #toast { position: fixed; bottom: 28px; right: 28px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 13px 20px; font-size: 14px; font-weight: 600; box-shadow: 0 8px 32px rgba(0,0,0,.4); transform: translateY(60px); opacity: 0; transition: all .3s; z-index: 999; }
-  #toast.show { transform: translateY(0); opacity: 1; }
-  #toast.success { border-color: var(--success); color: var(--success); }
-  #toast.error { border-color: var(--danger); color: var(--danger); }
-  @media (max-width: 600px) { .grid3 { grid-template-columns: 1fr; } .full { grid-column: 1; } header { padding: 0 14px; } }
-</style>
-</head>
-<body>
-
-<div id="loginGate">
-  <div class="login-box">
-    <div class="brand">PremiumCarHub</div>
-    <h2>Admin Portal</h2>
-    <input type="password" id="pinInput" placeholder="Enter admin PIN" onkeydown="if(event.key==='Enter')doLogin()">
-    <button class="login-btn" onclick="doLogin()">Sign In</button>
-    <div id="loginError">Incorrect PIN. Try again.</div>
-  </div>
-</div>
-
-<div id="app">
-  <header>
-    <div style="display:flex;align-items:center">
-      <span class="header-logo">PremiumCarHub</span>
-      <span class="header-badge">Admin</span>
-    </div>
-    <button class="logout-btn" onclick="doLogout()">Sign Out</button>
-  </header>
-
-  <div class="main">
-    <div class="tabs">
-      <button class="tab active" onclick="switchTab('upload',this)">➕ Add Car</button>
-      <button class="tab" onclick="switchTab('inventory',this)">🚗 Inventory</button>
-    </div>
-
-    <div id="tab-upload">
-      <div class="card">
-        <div class="card-title">Vehicle Details</div>
-        <div class="grid3">
-          <div><label>Year</label><input id="year" type="number" placeholder="2022" min="1990" max="2030"></div>
-          <div><label>Make</label>
-            <select id="make">
-              <option value="">Select Make</option>
-              <option>Toyota</option><option>Mazda</option><option>Honda</option>
-              <option>Hyundai</option><option>Kia</option><option>BMW</option>
-              <option>Mercedes-Benz</option><option>Audi</option><option>Ford</option>
-              <option>Holden</option><option>Nissan</option><option>Mitsubishi</option>
-              <option>Subaru</option><option>Volkswagen</option><option>Tesla</option>
-              <option>Lexus</option><option>Other</option>
-            </select>
-          </div>
-          <div><label>Model</label><input id="model" placeholder="e.g. Corolla, CX-5"></div>
-          <div><label>Variant / Badge</label><input id="variant" placeholder="e.g. Ascent Sport"></div>
-          <div><label>Body Type</label>
-            <select id="body">
-              <option value="">Select</option>
-              <option>Sedan</option><option>Hatchback</option><option>SUV</option>
-              <option>Ute</option><option>Wagon</option><option>Coupe</option>
-              <option>Van</option><option>People Mover</option>
-            </select>
-          </div>
-          <div><label>Colour</label><input id="colour" placeholder="e.g. Pearl White"></div>
-          <div><label>Odometer (km)</label><input id="odo" type="number" placeholder="45000" min="0"></div>
-          <div><label>Transmission</label>
-            <select id="trans">
-              <option value="">Select</option>
-              <option>Automatic</option><option>Manual</option><option>CVT</option>
-            </select>
-          </div>
-          <div><label>Fuel Type</label>
-            <select id="fuel">
-              <option value="">Select</option>
-              <option>Petrol</option><option>Diesel</option>
-              <option>Hybrid</option><option>Electric</option><option>Plug-in Hybrid</option>
-            </select>
-          </div>
-          <div><label>Car SKU (e.g. CAR-001)</label><input id="sku" placeholder="CAR-001"></div>
-          <div><label>Rego (optional)</label><input id="rego" placeholder="e.g. ABC123"></div>
-          <div><label>Status</label>
-            <select id="status">
-              <option value="available">Available</option>
-              <option value="sold">Sold</option>
-              <option value="reserved">Reserved</option>
-            </select>
-          </div>
-          <div class="full"><label>Description</label>
-            <textarea id="desc" placeholder="Describe the car — service history, condition, RWC, extras, damage etc."></textarea>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Pricing</div>
-        <div class="grid3">
-          <div><label>Sale Price (AUD $)</label><input id="price" type="number" placeholder="24990" min="0"></div>
-          <div><label>Finance From ($/week)</label><input id="financeWeekly" type="number" placeholder="89" min="0"></div>
-          <div><label>Deposit Required (AUD $)</label><input id="deposit" type="number" placeholder="2000" min="0"></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Accepted Payment Methods</div>
-        <div class="payment-options">
-          <label class="pay-toggle" id="tog-stripe"><input type="checkbox" value="stripe" onchange="togglePay(this,'tog-stripe')"><span>💳</span> Stripe</label>
-          <label class="pay-toggle" id="tog-paypal"><input type="checkbox" value="paypal" onchange="togglePay(this,'tog-paypal')"><span>🅿️</span> PayPal</label>
-          <label class="pay-toggle" id="tog-bank"><input type="checkbox" value="bank" onchange="togglePay(this,'tog-bank')"><span>🏦</span> Bank Transfer</label>
-          <label class="pay-toggle" id="tog-cash"><input type="checkbox" value="cash" onchange="togglePay(this,'tog-cash')"><span>💵</span> Cash</label>
-          <label class="pay-toggle" id="tog-finance"><input type="checkbox" value="finance" onchange="togglePay(this,'tog-finance')"><span>📋</span> Finance</label>
-        </div>
-        <div id="stripeField" style="display:none;margin-top:14px"><label>Stripe Payment Link</label><input id="stripeLink" placeholder="https://buy.stripe.com/your_link"></div>
-        <div id="paypalField" style="display:none;margin-top:14px"><label>PayPal Checkout Link</label><input id="paypalLink" placeholder="https://www.paypal.com/checkoutnow?token=..."></div>
-        <div id="bankField" style="display:none;margin-top:14px"><label>Bank Details</label><input id="bankDetails" placeholder="BSB: 062-000  Acc: 12345678  Name: PremiumCarHub"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Photos</div>
-        <div class="drop-zone" id="dropZone">
-          <input type="file" id="fileInput" accept="image/*" multiple onchange="handleFiles(this.files)">
-          <div style="font-size:32px">📸</div>
-          <div class="drop-hint">Drag & drop photos or <span>click to browse</span></div>
-          <div class="drop-hint" style="font-size:11px;margin-top:4px">JPG · PNG · WEBP · First image = main photo</div>
-        </div>
-        <div class="preview-grid" id="previewGrid"></div>
-        <div id="resultBox"></div>
-      </div>
-
-      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px">
-        <button class="btn-primary" onclick="saveListing()">💾 Save Listing</button>
-        <button class="btn-secondary" onclick="resetForm()">Clear Form</button>
-        <span id="saveStatus" style="font-size:13px;color:var(--muted)"></span>
-      </div>
-    </div>
-
-    <div id="tab-inventory" style="display:none">
-      <div style="margin-bottom:20px">
-        <div style="font-size:20px;font-weight:700">Current Inventory</div>
-        <div style="font-size:13px;color:var(--muted);margin-top:3px">All live listings from your website</div>
-      </div>
-      <div id="carList" class="car-list"></div>
-    </div>
-  </div>
-</div>
-
-<div id="toast"></div>
-
-<script>
-var ADMIN_PIN = 'carhub2025!23';
-
-function doLogin() {
-  if (document.getElementById('pinInput').value === ADMIN_PIN) {
-    document.getElementById('loginGate').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
-    renderInventory();
-  } else {
-    document.getElementById('loginError').style.display = 'block';
-  }
-}
-
-function doLogout() {
-  document.getElementById('loginGate').style.display = 'flex';
-  document.getElementById('app').style.display = 'none';
-  document.getElementById('pinInput').value = '';
-}
-
-function switchTab(name, el) {
-  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
-  el.classList.add('active');
-  document.getElementById('tab-upload').style.display    = name === 'upload'    ? '' : 'none';
-  document.getElementById('tab-inventory').style.display = name === 'inventory' ? '' : 'none';
-  if (name === 'inventory') renderInventory();
-}
-
-function togglePay(cb, id) {
-  document.getElementById(id).classList.toggle('checked', cb.checked);
-  if (id === 'tog-stripe') document.getElementById('stripeField').style.display = cb.checked ? '' : 'none';
-  if (id === 'tog-paypal') document.getElementById('paypalField').style.display = cb.checked ? '' : 'none';
-  if (id === 'tog-bank')   document.getElementById('bankField').style.display   = cb.checked ? '' : 'none';
-}
-
-var images = [];
-
-function handleFiles(files) {
-  Array.from(files).forEach(function(file) {
-    if (!file.type.startsWith('image/')) return;
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      images.push({ name: file.name, type: file.type, data: e.target.result });
-      renderPreviews();
-    };
-    reader.readAsDataURL(file);
-  });
-}
-
-function renderPreviews() {
-  document.getElementById('previewGrid').innerHTML = images.map(function(img, i) {
-    return '<div class="preview-item"><img src="' + img.data + '" alt="">' +
-      (i === 0 ? '<div class="main-badge">Main</div>' : '') +
-      '<button class="remove-img" onclick="removeImg(' + i + ')">✕</button></div>';
-  }).join('');
-}
-
-function removeImg(i) { images.splice(i, 1); renderPreviews(); }
-
-var dz = document.getElementById('dropZone');
-dz.addEventListener('dragover', function(e){ e.preventDefault(); dz.style.borderColor='var(--accent)'; });
-dz.addEventListener('dragleave', function(){ dz.style.borderColor=''; });
-dz.addEventListener('drop', function(e){ e.preventDefault(); dz.style.borderColor=''; handleFiles(e.dataTransfer.files); });
-
-function getPayments() {
-  var methods = [];
-  document.querySelectorAll('.pay-toggle input:checked').forEach(function(cb){ methods.push(cb.value); });
-  return {
-    methods: methods,
-    stripeLink:  document.getElementById('stripeLink').value.trim(),
-    paypalLink:  document.getElementById('paypalLink').value.trim(),
-    bankDetails: document.getElementById('bankDetails').value.trim()
-  };
-}
-
-async function saveListing() {
-  var year  = document.getElementById('year').value;
-  var make  = document.getElementById('make').value;
-  var model = document.getElementById('model').value;
-  var price = document.getElementById('price').value;
-  var sku   = document.getElementById('sku').value.trim();
-
-  if (!year || !make || !model || !price || !sku) {
-    showToast('Please fill in Year, Make, Model, Price and SKU.', 'error');
-    return;
-  }
-
-  document.getElementById('saveStatus').textContent = 'Saving...';
-  document.getElementById('resultBox').style.display = 'none';
-
-  // Build car object — plain object, NOT stringified
-  var car = {
-    id:            Date.now(),
-    sku:           sku,
-    year:          year,
-    make:          make,
-    model:         model,
-    variant:       document.getElementById('variant').value,
-    body:          document.getElementById('body').value,
-    colour:        document.getElementById('colour').value,
-    odo:           document.getElementById('odo').value,
-    trans:         document.getElementById('trans').value,
-    fuel:          document.getElementById('fuel').value,
-    rego:          document.getElementById('rego').value,
-    status:        document.getElementById('status').value,
-    desc:          document.getElementById('desc').value,
-    price:         price,
-    financeWeekly: document.getElementById('financeWeekly').value,
-    deposit:       document.getElementById('deposit').value,
-    payment:       getPayments(),
-    images:        [],
-    createdAt:     new Date().toISOString()
-  };
 
   try {
-    // Build payload — carData is a plain object (NOT JSON.stringify)
-    var payload = {
-      carData: car
+    const { inventory, message } = req.body;
+
+    const OWNER = 'khanmujeebin';
+    const REPO  = 'premiumcarhub';
+    const PATH  = 'data/inventory.json';
+
+    const ghHeaders = {
+      'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+      'Accept': 'application/vnd.github+json',
+      'Content-Type': 'application/json',
     };
 
-    // Add image data if photo selected
-    if (images.length > 0) {
-      var imgData = images[0].data;
-      var base64  = imgData.includes(',') ? imgData.split(',')[1] : imgData;
-      payload.fileData    = base64;
-      payload.contentType = images[0].type;
-      payload.filename    = sku + '-img0.' + images[0].type.split('/')[1];
+    const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
+    const getRes  = await fetch(url, { headers: ghHeaders });
+    const getJson = await getRes.json();
+
+    if (!getJson.sha) {
+      return res.status(500).json({ error: 'Could not read inventory.json: ' + getJson.message });
     }
 
-    var res = await fetch('/api/upload', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + ADMIN_PIN
-      },
-      body: JSON.stringify(payload)
+    const putRes = await fetch(url, {
+      method: 'PUT',
+      headers: ghHeaders,
+      body: JSON.stringify({
+        message: message || 'Update inventory',
+        content: Buffer.from(JSON.stringify(inventory, null, 2)).toString('base64'),
+        sha: getJson.sha,
+      }),
     });
 
-    var data = await res.json();
-
-    if (!res.ok) {
-      throw new Error(data.error || 'Save failed');
+    if (!putRes.ok) {
+      const err = await putRes.json();
+      return res.status(500).json({ error: 'GitHub save failed: ' + JSON.stringify(err) });
     }
 
-    document.getElementById('resultBox').style.display = 'block';
-    document.getElementById('resultBox').innerHTML =
-      '✅ Car saved to website!' +
-      (data.publicUrl ? '<br>Image: <a href="' + data.publicUrl + '" target="_blank">' + data.publicUrl + '</a>' : '');
+    return res.status(200).json({ success: true });
 
-    showToast('✅ ' + year + ' ' + make + ' ' + model + ' is now live!', 'success');
-    document.getElementById('saveStatus').textContent = '';
-    resetForm();
-
-  } catch(err) {
-    document.getElementById('saveStatus').textContent = '';
-    showToast('❌ Error: ' + err.message, 'error');
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
   }
 }
-
-function resetForm() {
-  ['year','make','model','variant','body','colour','odo','trans','fuel',
-   'rego','status','desc','price','financeWeekly','deposit','sku',
-   'stripeLink','paypalLink','bankDetails'].forEach(function(id){
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.tagName === 'SELECT' ? (el.selectedIndex = 0) : (el.value = '');
-  });
-  document.querySelectorAll('.pay-toggle input').forEach(function(cb){ cb.checked = false; });
-  document.querySelectorAll('.pay-toggle').forEach(function(t){ t.classList.remove('checked'); });
-  ['stripeField','paypalField','bankField'].forEach(function(id){
-    document.getElementById(id).style.display = 'none';
-  });
-  images = [];
-  renderPreviews();
-}
-
-async function renderInventory() {
-  var list = document.getElementById('carList');
-  list.innerHTML = '<div class="empty">Loading...</div>';
-  try {
-    var res  = await fetch('/data/inventory.json?t=' + Date.now());
-    var cars = await res.json();
-    if (!cars.length) {
-      list.innerHTML = '<div class="empty">🚗 No listings yet. Add your first car!</div>';
-      return;
-    }
-    list.innerHTML = cars.map(function(c) {
-      return '<div class="car-row">' +
-        '<img class="car-thumb" src="' + (c.images && c.images[0] ? c.images[0] : '') + '" alt="" onerror="this.style.background=\'var(--surface2)\';this.src=\'\'">' +
-        '<div class="car-info">' +
-          '<div class="car-name">' + c.year + ' ' + c.make + ' ' + c.model + (c.variant ? ' ' + c.variant : '') + '</div>' +
-          '<div class="car-meta">' +
-            (c.sku ? 'SKU: ' + c.sku + ' · ' : '') +
-            (c.odo ? Number(c.odo).toLocaleString() + 'km · ' : '') +
-            (c.trans || '') + ' · ' + (c.colour || '') + ' · ' + c.status +
-          '</div>' +
-        '</div>' +
-        '<div class="car-price">$' + Number(c.price).toLocaleString() + '</div>' +
-        '</div>';
-    }).join('');
-  } catch(e) {
-    list.innerHTML = '<div class="empty">Could not load inventory.</div>';
-  }
-}
-
-function showToast(msg, type) {
-  var t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'show ' + (type || 'success');
-  setTimeout(function(){ t.className = ''; }, 3200);
-}
-</script>
-</body>
-</html>
