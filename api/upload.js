@@ -15,7 +15,6 @@ module.exports = async function handler(req, res) {
       const buffer = Buffer.from(fileData, 'base64');
       const ext = filename.split('.').pop().toLowerCase();
       const pathname = `inventory/${Date.now()}.${ext}`;
-
       const uploadRes = await fetch(`https://blob.vercel-storage.com/${pathname}`, {
         method: 'PUT',
         headers: {
@@ -31,10 +30,13 @@ module.exports = async function handler(req, res) {
 
     // Save car to GitHub inventory.json
     if (carData) {
-      // carData arrives as a plain object (already parsed by express)
       const car = carData;
       if (imageUrl) car.images = [imageUrl];
       car.id = Date.now();
+
+      const OWNER = 'khanmujeebin';
+      const REPO  = 'premiumcarhub';
+      const PATH  = 'data/inventory.json';
 
       const ghHeaders = {
         'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
@@ -42,23 +44,22 @@ module.exports = async function handler(req, res) {
         'Content-Type': 'application/json',
       };
 
-      const owner = process.env.GITHUB_OWNER;
-      const repo  = process.env.GITHUB_REPO;
-      const path  = 'data/inventory.json';
-
-      // Get current inventory.json
-      const getRes  = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, { headers: ghHeaders });
+      const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
+      const getRes  = await fetch(url, { headers: ghHeaders });
       const getJson = await getRes.json();
 
       if (!getJson.content) {
-        return res.status(500).json({ error: 'Could not read inventory.json from GitHub: ' + JSON.stringify(getJson) });
+        return res.status(500).json({ 
+          error: 'GitHub error: ' + getJson.message,
+          url: url,
+          token_starts: process.env.GITHUB_TOKEN ? process.env.GITHUB_TOKEN.substring(0,10) : 'NOT SET'
+        });
       }
 
       const current = JSON.parse(Buffer.from(getJson.content, 'base64').toString('utf8'));
       current.unshift(car);
 
-      // Save back to GitHub
-      const putRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+      const putRes = await fetch(url, {
         method: 'PUT',
         headers: ghHeaders,
         body: JSON.stringify({
