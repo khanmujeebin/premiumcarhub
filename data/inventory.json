@@ -1,1 +1,31 @@
-[]
+[
+  {
+    "id": 1772423420633,
+    "sku": "CAR-001",
+    "year": "2003",
+    "make": "Toyota",
+    "model": "Parado",
+    "variant": "Land Cruser",
+    "body": "SUV",
+    "colour": "Silver",
+    "odo": "298000",
+    "trans": "Automatic",
+    "fuel": "Petrol",
+    "rego": "",
+    "status": "available",
+    "desc": "Up for sale is a 2003 Land Cruiser Prado in excellent condition, known for its legendary Toyota reliability and tough build. This Prado has a strong body, no mechanical issues at all, and has been very well maintained throughout its life. It drives beautifully and needs absolutely no money spent—just pay and drive.\n✔ 8 months NSW Rego included\n✔ Perfect for towing caravans thanks to its powerful engine and solid chassis\n✔ Excellent for camping, off-roading, touring or daily driving\n✔ Smooth, stable and extremely comfortable on long trips\n✔ Clean interior, well-kept exterior and mechanically sound\nWhether you're planning your next adventure or need a dependable family SUV, this Prado is ready to go anywhere you want. A truly worry‑free, turn‑key vehicle!\nDon’t miss this opportunity to own a trusted Land Cruiser Prado that’s built to last.",
+    "price": "11990",
+    "financeWeekly": "",
+    "deposit": "",
+    "payment": {
+      "methods": [],
+      "stripeLink": "",
+      "paypalLink": "",
+      "bankDetails": ""
+    },
+    "images": [
+      "https://nxczj92hku0hlqra.public.blob.vercel-storage.com/inventory/1772423418623-HIqAIkiDYNOTAvZ1zc0j0Dz3fQFxhL.jpeg"
+    ],
+    "createdAt": "2026-03-02T03:50:13.921Z"
+  }
+]
