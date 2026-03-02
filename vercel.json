@@ -1,22 +1,31 @@
 {
   "functions": {
-    "api/*.js": {
-      "runtime": "nodejs18.x"
+    "api/upload.js": {
+      "runtime": "node@18"
     }
   },
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/$1" }
+    { "src": "/api/(.*)", "dest": "/api/$1" }
   ]
 }
 ```
 
-4. Click **Commit changes**
+4. Commit changes
 
 ---
 
-## After Vercel Redeploys
+## Also rename your file
 
-Test this URL again:
+In GitHub, rename `api/upload.js` to confirm it's in the right place — it must be exactly:
+```
+api/upload.js
+```
+Not inside any other folder.
+
+---
+
+## After Committing — Test Again
+
+Open in browser:
 ```
 https://premiumcarhub.com.au/api/upload
