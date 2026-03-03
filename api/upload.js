@@ -7,31 +7,37 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const { filename, contentType, fileData, carData } = req.body;
+    const { filename, contentType, fileData, carData, mediaOnly } = req.body;
 
-    // Upload image to Vercel Blob
-    let imageUrl = '';
+    let mediaUrl = '';
     if (fileData && filename && contentType) {
       const buffer = Buffer.from(fileData, 'base64');
       const ext = filename.split('.').pop().toLowerCase();
-      const pathname = `inventory/${Date.now()}.${ext}`;
+      const folder = contentType.startsWith('video/') ? 'videos' : 'inventory';
+      const pathname = `${folder}/${Date.now()}-${filename}`;
+
       const uploadRes = await fetch(`https://blob.vercel-storage.com/${pathname}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}`,
           'Content-Type': contentType,
           'x-api-version': '7',
+          'x-cache-control-max-age': '31536000',
+          'x-add-random-suffix': '1',
         },
         body: buffer,
       });
+
       const blob = await uploadRes.json();
-      imageUrl = blob.url || '';
+      mediaUrl = blob.url || '';
     }
 
-    // Save car to GitHub inventory.json
+    if (mediaOnly) {
+      return res.status(200).json({ publicUrl: mediaUrl, success: true });
+    }
+
     if (carData) {
       const car = carData;
-      if (imageUrl) car.images = [imageUrl];
       car.id = Date.now();
 
       const OWNER = 'khanmujeebin';
@@ -49,11 +55,7 @@ module.exports = async function handler(req, res) {
       const getJson = await getRes.json();
 
       if (!getJson.content) {
-        return res.status(500).json({ 
-          error: 'GitHub error: ' + getJson.message,
-          url: url,
-          token_starts: process.env.GITHUB_TOKEN ? process.env.GITHUB_TOKEN.substring(0,10) : 'NOT SET'
-        });
+        return res.status(500).json({ error: 'GitHub error: ' + getJson.message });
       }
 
       const current = JSON.parse(Buffer.from(getJson.content, 'base64').toString('utf8'));
@@ -75,7 +77,7 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    return res.status(200).json({ publicUrl: imageUrl, success: true });
+    return res.status(200).json({ publicUrl: mediaUrl, success: true });
 
   } catch (err) {
     return res.status(500).json({ error: err.message });
