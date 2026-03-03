@@ -12,7 +12,6 @@ module.exports = async function handler(req, res) {
     let mediaUrl = '';
     if (fileData && filename && contentType) {
       const buffer = Buffer.from(fileData, 'base64');
-      const ext = filename.split('.').pop().toLowerCase();
       const folder = contentType.startsWith('video/') ? 'videos' : 'inventory';
       const pathname = `${folder}/${Date.now()}-${filename}`;
 
@@ -22,13 +21,13 @@ module.exports = async function handler(req, res) {
           'Authorization': `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}`,
           'Content-Type': contentType,
           'x-api-version': '7',
-          'x-cache-control-max-age': '31536000',
-          'x-add-random-suffix': '1',
+          'x-access': 'public',
         },
         body: buffer,
       });
 
       const blob = await uploadRes.json();
+      console.log('Blob response:', JSON.stringify(blob));
       mediaUrl = blob.url || '';
     }
 
