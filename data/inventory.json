@@ -23,7 +23,9 @@
       "paypalLink": "",
       "bankDetails": ""
     },
-    "images": [],
+    "images": [
+      "https://nxczj92hku0hlqra.public.blob.vercel-storage.com/inventory/1772513984890-CAR-002-img1772513983268.jpeg"
+    ],
     "createdAt": "2026-03-02T23:30:38.954Z"
   },
   {
