@@ -1,4 +1,4 @@
-const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/14A28teIvfcEbBRaxuf7i00';
+const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/your_payment_link';
 const PAYPAL_CHECKOUT_LINK = 'https://www.paypal.com/checkoutnow?token=YOURTOKEN';
 
 let inventory = [];
