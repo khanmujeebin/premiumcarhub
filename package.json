@@ -1,11 +1,4 @@
 {
-  "name": "premiumcarhub",
-  "version": "1.0.0",
-  "engines": {
-    "node": "24.x"
-  }
-}
-{
   "dependencies": {
     "@vercel/blob": "^0.27.0"
   }
