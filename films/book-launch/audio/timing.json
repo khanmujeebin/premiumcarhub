@@ -1,0 +1,152 @@
+{
+  "total_duration": 72.546,
+  "lead_in": 0.9,
+  "tail_out": 3.0,
+  "tempo": 1.0,
+  "segments": [
+    {
+      "id": 1,
+      "scene": "T01_hook",
+      "caption": "Hiring slows. Rates rise. The pay packet buys a little less every week.",
+      "vo": "Hiring slows. Rates rise. The pay packet buys a little less every week.",
+      "start": 0.9,
+      "end": 5.692,
+      "duration": 4.792
+    },
+    {
+      "id": 2,
+      "scene": "T01_hook",
+      "caption": "For millions of Australians, the kitchen-table maths no longer adds up.",
+      "vo": "For millions of Australians, the kitchen-table maths no longer adds up.",
+      "start": 6.142,
+      "end": 10.222,
+      "duration": 4.08
+    },
+    {
+      "id": 3,
+      "scene": "T01_hook",
+      "caption": "I'm Mujeeb Ur Rehman, and I've written two books about what we do next.",
+      "vo": "I'm Mujeeb Ur Rehman, and I've written two books about what we do next.",
+      "start": 10.672,
+      "end": 14.814,
+      "duration": 4.141
+    },
+    {
+      "id": 4,
+      "scene": "T02_book_one",
+      "caption": "Book one is Hope Without Illusions.",
+      "vo": "Book one is Hope Without Illusions.",
+      "start": 15.614,
+      "end": 17.538,
+      "duration": 1.924
+    },
+    {
+      "id": 5,
+      "scene": "T02_book_one",
+      "caption": "A practical roadmap to jobs, resilience and affordability.",
+      "vo": "A practical roadmap to jobs, resilience and affordability.",
+      "start": 17.988,
+      "end": 21.599,
+      "duration": 3.611
+    },
+    {
+      "id": 6,
+      "scene": "T02_book_one",
+      "caption": "It shows how Australia can build world-class infrastructure and real manufacturing.",
+      "vo": "It shows how Australia can build world-class infrastructure and real manufacturing.",
+      "start": 22.049,
+      "end": 27.031,
+      "duration": 4.982
+    },
+    {
+      "id": 7,
+      "scene": "T02_book_one",
+      "caption": "It's out now on Amazon.",
+      "vo": "It's out now on Amazon.",
+      "start": 27.481,
+      "end": 28.808,
+      "duration": 1.327
+    },
+    {
+      "id": 8,
+      "scene": "T03_book_two",
+      "caption": "And this week, book two arrives.",
+      "vo": "And this week, book two arrives.",
+      "start": 29.808,
+      "end": 31.665,
+      "duration": 1.858
+    },
+    {
+      "id": 9,
+      "scene": "T03_book_two",
+      "caption": "Australian Economy Under Pressure.",
+      "vo": "Australian Economy Under Pressure.",
+      "start": 32.115,
+      "end": 33.828,
+      "duration": 1.713
+    },
+    {
+      "id": 10,
+      "scene": "T03_book_two",
+      "caption": "How five rate rises in 2026 flowed through to mortgages and cash flow.",
+      "vo": "How five rate rises in twenty twenty-six flowed through to mortgages and cash flow.",
+      "start": 34.528,
+      "end": 39.393,
+      "duration": 4.864
+    },
+    {
+      "id": 11,
+      "scene": "T03_book_two",
+      "caption": "Why your council rates keep rising, even when your home is worth less.",
+      "vo": "Why your council rates keep rising, even when your home is worth less.",
+      "start": 39.843,
+      "end": 43.787,
+      "duration": 3.944
+    },
+    {
+      "id": 12,
+      "scene": "T03_book_two",
+      "caption": "What Snowy 2.0, Inland Rail and Sydney's light rail reveal about world-class promises.",
+      "vo": "What Snowy two point oh, Inland Rail and Sydney's light rail reveal about world-class promises.",
+      "start": 44.237,
+      "end": 49.953,
+      "duration": 5.716
+    },
+    {
+      "id": 13,
+      "scene": "T03_book_two",
+      "caption": "And a 90-day action plan for households and small businesses.",
+      "vo": "And a ninety-day action plan for households and small businesses.",
+      "start": 50.403,
+      "end": 54.359,
+      "duration": 3.956
+    },
+    {
+      "id": 14,
+      "scene": "T04_close",
+      "caption": "I've delivered infrastructure projects, built homes and run small businesses here.",
+      "vo": "I've delivered infrastructure projects, built homes and run small businesses here.",
+      "start": 55.359,
+      "end": 60.286,
+      "duration": 4.927
+    },
+    {
+      "id": 15,
+      "scene": "T04_close",
+      "caption": "The squeeze is real. So is the way forward.",
+      "vo": "The squeeze is real. So is the way forward.",
+      "start": 60.736,
+      "end": 63.356,
+      "duration": 2.621
+    },
+    {
+      "id": 16,
+      "scene": "T04_close",
+      "caption": "Hope Without Illusions is on Amazon now. Australian Economy Under Pressure launches this week.",
+      "vo": "Hope Without Illusions is on Amazon now. Australian Economy Under Pressure launches this week.",
+      "start": 64.156,
+      "end": 69.546,
+      "duration": 5.389
+    }
+  ]
+}
