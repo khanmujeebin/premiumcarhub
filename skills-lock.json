@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "skills": {
+    "cinematic-film": {
+      "source": "Moh4696/cinematic-skill",
+      "commit": "bf435561c6203f90f971300efe952b68b5ec3417",
+      "sourceType": "github",
+      "skillPath": "skills/cinematic-film/SKILL.md",
+      "computedHash": "ad5ded9df61592cd0952633c08e912a2b34eeba78415cf67c33037922619e146"
+    },
+    "motionsites-web-builder": {
+      "source": "Motionsites-AI/claude-skill",
+      "commit": "faa30d512e3973e58675c72101a7ef42ed37ae83",
+      "sourceType": "github",
+      "skillPath": "plugins/motionsites-web-builder/skills/motionsites-web-builder/SKILL.md",
+      "computedHash": "53fbff65b9a1a743b48da1d03d79096f911538991d74671fa0b12fd573097ef9"
+    },
+    "video-shotcraft": {
+      "source": "Vincentwei1021/video-shotcraft",
+      "commit": "59f3e9b9e936ff2bce0e18446226d770a3f2f61f",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "57bf31860d5d9beb9f94840fae19328b35ddd54eb862a239c2f50f83f848f7f1"
+    }
+  }
+}
