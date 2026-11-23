@@ -1,0 +1,165 @@
+{
+ "segments": [
+  {
+   "id": 1,
+   "scene": "L01_narrator",
+   "caption": "In a happy little house in Sydney lived the Rehman family.",
+   "vo": "In a happy little house in Sydney lived the Rehman family.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 2,
+   "scene": "L02_narrator",
+   "caption": "Mum, Dad, big brother Hamd, Aizah, and little Jazaa.",
+   "vo": "Mum, Dad, big brother Hamd, Aizah, and little Jazaa.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 3,
+   "scene": "L03_hamd",
+   "caption": "Dad, my friend says the family with the most money wins. Are we rich?",
+   "vo": "Dad, my friend says the family with the most money wins. Are we rich?",
+   "gap_after": 0.45
+  },
+  {
+   "id": 4,
+   "scene": "L04_dad",
+   "caption": "Ah, Hamd. We have a treasure bigger than any money. Shall we find it together?",
+   "vo": "Ah, Hamd. We have a treasure bigger than any money. Shall we find it together?",
+   "gap_after": 0.45
+  },
+  {
+   "id": 5,
+   "scene": "L05_jazaa",
+   "caption": "A treasure hunt! Yes!",
+   "vo": "A treasure hunt! Yes!",
+   "gap_after": 0.45
+  },
+  {
+   "id": 6,
+   "scene": "L06_narrator",
+   "caption": "Clue number one was in the kitchen.",
+   "vo": "Clue number one was in the kitchen.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 7,
+   "scene": "L07_mum",
+   "caption": "Dad works long days, and I work hard too, so you can have food, school and a warm home.",
+   "vo": "Dad works long days, and I work hard too, so you can have food, school and a warm home.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 8,
+   "scene": "L08_mum",
+   "caption": "That's why we spend wisely, and buy only what we really need.",
+   "vo": "That's why we spend wisely, and buy only what we really need.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 9,
+   "scene": "L09_aizah",
+   "caption": "And we never waste food, right Mum?",
+   "vo": "And we never waste food, right Mum?",
+   "gap_after": 0.45
+  },
+  {
+   "id": 10,
+   "scene": "L10_mum",
+   "caption": "Never. Take a little, finish it all, and say Alhamdulillah.",
+   "vo": "Never. Take a little, finish it all, and say Alhamdulillah.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 11,
+   "scene": "L11_narrator",
+   "caption": "Clue number two was at the front door, with a basket of fruit and warm bread.",
+   "vo": "Clue number two was at the front door, with a basket of fruit and warm bread.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 12,
+   "scene": "L12_dad",
+   "caption": "Uncle Yusuf next door is unwell today. Let's share with him.",
+   "vo": "Uncle Yusuf next door is unwell today. Let's share with him.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 13,
+   "scene": "L13_jazaa",
+   "caption": "And I'll share my lunch with my friend Mia. She forgot hers!",
+   "vo": "And I'll share my lunch with my friend Mia. She forgot hers!",
+   "gap_after": 0.45
+  },
+  {
+   "id": 14,
+   "scene": "L14_narrator",
+   "caption": "Clue number three came on the way home from the park.",
+   "vo": "Clue number three came on the way home from the park.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 15,
+   "scene": "L15_hamd",
+   "caption": "Some boys wanted me to skip school and be mean to a new kid. I said no, and walked away.",
+   "vo": "Some boys wanted me to skip school and be mean to a new kid. I said no, and walked away.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 16,
+   "scene": "L16_dad",
+   "caption": "I'm proud of you. Good friends make you better. Choose them carefully.",
+   "vo": "I'm proud of you. Good friends make you better. Choose them carefully.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 17,
+   "scene": "L17_narrator",
+   "caption": "The last clue led to Grandpa's bench.",
+   "vo": "The last clue led to Grandpa's bench.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 18,
+   "scene": "L18_aizah",
+   "caption": "Salaam, Grandpa! Let me carry your tea for you.",
+   "vo": "Salaam, Grandpa! Let me carry your tea for you.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 19,
+   "scene": "L19_narrator",
+   "caption": "Grandpa smiled the biggest smile of all.",
+   "vo": "Grandpa smiled the biggest smile of all.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 20,
+   "scene": "L20_jazaa",
+   "caption": "Dad, we found every clue. But where's the treasure?",
+   "vo": "Dad, we found every clue. But where's the treasure?",
+   "gap_after": 0.45
+  },
+  {
+   "id": 21,
+   "scene": "L21_dad",
+   "caption": "Look around you. Mum, Grandpa, all of us together. Our family is the treasure.",
+   "vo": "Look around you. Mum, Grandpa, all of us together. Our family is the treasure.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 22,
+   "scene": "L22_narrator",
+   "caption": "Spend wisely. Waste nothing. Help others. Choose good friends. Respect your elders.",
+   "vo": "Spend wisely. Waste nothing. Help others. Choose good friends. Respect your elders.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 23,
+   "scene": "L23_kids",
+   "caption": "And love your family most of all!",
+   "vo": "And love your family most of all!",
+   "gap_after": 1.8
+  }
+ ]
+}

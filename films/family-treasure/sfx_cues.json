@@ -1,0 +1,156 @@
+{
+ "duration": 94.776,
+ "cues": [
+  {
+   "type": "impact",
+   "t": 0.9,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 1.433,
+   "gain": 0.8
+  },
+  {
+   "type": "impact",
+   "t": 4.402,
+   "gain": 0.35
+  },
+  {
+   "type": "impact",
+   "t": 4.75,
+   "gain": 0.35
+  },
+  {
+   "type": "impact",
+   "t": 6.259,
+   "gain": 0.35
+  },
+  {
+   "type": "impact",
+   "t": 6.723,
+   "gain": 0.35
+  },
+  {
+   "type": "impact",
+   "t": 8.348,
+   "gain": 0.35
+  },
+  {
+   "type": "whoosh",
+   "t": 9.067,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 20.467,
+   "gain": 0.8
+  },
+  {
+   "type": "impact",
+   "t": 20.87,
+   "gain": 0.7
+  },
+  {
+   "type": "whoosh",
+   "t": 29.067,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 33.067,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 40.267,
+   "gain": 0.8
+  },
+  {
+   "type": "impact",
+   "t": 40.662,
+   "gain": 0.7
+  },
+  {
+   "type": "whoosh",
+   "t": 48.6,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 51.9,
+   "gain": 0.8
+  },
+  {
+   "type": "impact",
+   "t": 52.28,
+   "gain": 0.7
+  },
+  {
+   "type": "whoosh",
+   "t": 60.067,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 64.467,
+   "gain": 0.8
+  },
+  {
+   "type": "impact",
+   "t": 64.878,
+   "gain": 0.7
+  },
+  {
+   "type": "whoosh",
+   "t": 72.8,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 76.267,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 82.4,
+   "gain": 0.8
+  },
+  {
+   "type": "impact",
+   "t": 82.858,
+   "gain": 0.5
+  },
+  {
+   "type": "impact",
+   "t": 83.913,
+   "gain": 0.5
+  },
+  {
+   "type": "impact",
+   "t": 85.065,
+   "gain": 0.5
+  },
+  {
+   "type": "impact",
+   "t": 86.024,
+   "gain": 0.5
+  },
+  {
+   "type": "impact",
+   "t": 87.655,
+   "gain": 0.5
+  },
+  {
+   "type": "whoosh",
+   "t": 89.3,
+   "gain": 0.8
+  },
+  {
+   "type": "impact",
+   "t": 90.014,
+   "gain": 0.8
+  }
+ ],
+ "room_tone": []
+}

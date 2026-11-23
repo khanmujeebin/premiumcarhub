@@ -1,0 +1,215 @@
+{
+  "total_duration": 94.776,
+  "lead_in": 0.9,
+  "tail_out": 3.0,
+  "tempo": 1.0,
+  "segments": [
+    {
+      "id": 1,
+      "scene": "L01_narrator",
+      "caption": "In a happy little house in Sydney lived the Rehman family.",
+      "vo": "In a happy little house in Sydney lived the Rehman family.",
+      "start": 0.9,
+      "end": 3.962,
+      "duration": 3.062
+    },
+    {
+      "id": 2,
+      "scene": "L02_narrator",
+      "caption": "Mum, Dad, big brother Hamd, Aizah, and little Jazaa.",
+      "vo": "Mum, Dad, big brother Hamd, Aizah, and little Jazaa.",
+      "start": 4.412,
+      "end": 8.938,
+      "duration": 4.527
+    },
+    {
+      "id": 3,
+      "scene": "L03_hamd",
+      "caption": "Dad, my friend says the family with the most money wins. Are we rich?",
+      "vo": "Dad, my friend says the family with the most money wins. Are we rich?",
+      "start": 9.388,
+      "end": 13.611,
+      "duration": 4.223
+    },
+    {
+      "id": 4,
+      "scene": "L04_dad",
+      "caption": "Ah, Hamd. We have a treasure bigger than any money. Shall we find it together?",
+      "vo": "Ah, Hamd. We have a treasure bigger than any money. Shall we find it together?",
+      "start": 14.061,
+      "end": 18.526,
+      "duration": 4.465
+    },
+    {
+      "id": 5,
+      "scene": "L05_jazaa",
+      "caption": "A treasure hunt! Yes!",
+      "vo": "A treasure hunt! Yes!",
+      "start": 18.976,
+      "end": 20.52,
+      "duration": 1.545
+    },
+    {
+      "id": 6,
+      "scene": "L06_narrator",
+      "caption": "Clue number one was in the kitchen.",
+      "vo": "Clue number one was in the kitchen.",
+      "start": 20.97,
+      "end": 22.915,
+      "duration": 1.944
+    },
+    {
+      "id": 7,
+      "scene": "L07_mum",
+      "caption": "Dad works long days, and I work hard too, so you can have food, school and a warm home.",
+      "vo": "Dad works long days, and I work hard too, so you can have food, school and a warm home.",
+      "start": 23.365,
+      "end": 29.128,
+      "duration": 5.764
+    },
+    {
+      "id": 8,
+      "scene": "L08_mum",
+      "caption": "That's why we spend wisely, and buy only what we really need.",
+      "vo": "That's why we spend wisely, and buy only what we really need.",
+      "start": 29.578,
+      "end": 33.128,
+      "duration": 3.55
+    },
+    {
+      "id": 9,
+      "scene": "L09_aizah",
+      "caption": "And we never waste food, right Mum?",
+      "vo": "And we never waste food, right Mum?",
+      "start": 33.578,
+      "end": 35.652,
+      "duration": 2.073
+    },
+    {
+      "id": 10,
+      "scene": "L10_mum",
+      "caption": "Never. Take a little, finish it all, and say Alhamdulillah.",
+      "vo": "Never. Take a little, finish it all, and say Alhamdulillah.",
+      "start": 36.102,
+      "end": 40.312,
+      "duration": 4.211
+    },
+    {
+      "id": 11,
+      "scene": "L11_narrator",
+      "caption": "Clue number two was at the front door, with a basket of fruit and warm bread.",
+      "vo": "Clue number two was at the front door, with a basket of fruit and warm bread.",
+      "start": 40.762,
+      "end": 44.826,
+      "duration": 4.064
+    },
+    {
+      "id": 12,
+      "scene": "L12_dad",
+      "caption": "Uncle Yusuf next door is unwell today. Let's share with him.",
+      "vo": "Uncle Yusuf next door is unwell today. Let's share with him.",
+      "start": 45.276,
+      "end": 48.672,
+      "duration": 3.396
+    },
+    {
+      "id": 13,
+      "scene": "L13_jazaa",
+      "caption": "And I'll share my lunch with my friend Mia. She forgot hers!",
+      "vo": "And I'll share my lunch with my friend Mia. She forgot hers!",
+      "start": 49.122,
+      "end": 51.93,
+      "duration": 2.808
+    },
+    {
+      "id": 14,
+      "scene": "L14_narrator",
+      "caption": "Clue number three came on the way home from the park.",
+      "vo": "Clue number three came on the way home from the park.",
+      "start": 52.38,
+      "end": 54.829,
+      "duration": 2.449
+    },
+    {
+      "id": 15,
+      "scene": "L15_hamd",
+      "caption": "Some boys wanted me to skip school and be mean to a new kid. I said no, and walked away.",
+      "vo": "Some boys wanted me to skip school and be mean to a new kid. I said no, and walked away.",
+      "start": 55.279,
+      "end": 60.145,
+      "duration": 4.866
+    },
+    {
+      "id": 16,
+      "scene": "L16_dad",
+      "caption": "I'm proud of you. Good friends make you better. Choose them carefully.",
+      "vo": "I'm proud of you. Good friends make you better. Choose them carefully.",
+      "start": 60.595,
+      "end": 64.528,
+      "duration": 3.933
+    },
+    {
+      "id": 17,
+      "scene": "L17_narrator",
+      "caption": "The last clue led to Grandpa's bench.",
+      "vo": "The last clue led to Grandpa's bench.",
+      "start": 64.978,
+      "end": 67.059,
+      "duration": 2.08
+    },
+    {
+      "id": 18,
+      "scene": "L18_aizah",
+      "caption": "Salaam, Grandpa! Let me carry your tea for you.",
+      "vo": "Salaam, Grandpa! Let me carry your tea for you.",
+      "start": 67.509,
+      "end": 70.171,
+      "duration": 2.663
+    },
+    {
+      "id": 19,
+      "scene": "L19_narrator",
+      "caption": "Grandpa smiled the biggest smile of all.",
+      "vo": "Grandpa smiled the biggest smile of all.",
+      "start": 70.621,
+      "end": 72.868,
+      "duration": 2.247
+    },
+    {
+      "id": 20,
+      "scene": "L20_jazaa",
+      "caption": "Dad, we found every clue. But where's the treasure?",
+      "vo": "Dad, we found every clue. But where's the treasure?",
+      "start": 73.318,
+      "end": 76.354,
+      "duration": 3.036
+    },
+    {
+      "id": 21,
+      "scene": "L21_dad",
+      "caption": "Look around you. Mum, Grandpa, all of us together. Our family is the treasure.",
+      "vo": "Look around you. Mum, Grandpa, all of us together. Our family is the treasure.",
+      "start": 76.804,
+      "end": 82.468,
+      "duration": 5.664
+    },
+    {
+      "id": 22,
+      "scene": "L22_narrator",
+      "caption": "Spend wisely. Waste nothing. Help others. Choose good friends. Respect your elders.",
+      "vo": "Spend wisely. Waste nothing. Help others. Choose good friends. Respect your elders.",
+      "start": 82.918,
+      "end": 89.346,
+      "duration": 6.427
+    },
+    {
+      "id": 23,
+      "scene": "L23_kids",
+      "caption": "And love your family most of all!",
+      "vo": "And love your family most of all!",
+      "start": 89.796,
+      "end": 91.776,
+      "duration": 1.981
+    }
+  ]
+}

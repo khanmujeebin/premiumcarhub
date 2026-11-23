@@ -9,17 +9,17 @@
   "grandpa": "Grandpa: grey hair, glasses, beige cardigan (no lines)"
  },
  "voices": {
-  "narrator": "warm storyteller (HeyGen public)",
-  "dad": "Mujeeb Voice (your clone)",
-  "mum": "warm woman (HeyGen public)",
-  "jazaa": "young girl (HeyGen public)",
-  "aizah": "younger girl (HeyGen public)",
-  "hamd": "boy (HeyGen public)",
-  "kids": "Jazaa + Aizah + Hamd together"
+  "narrator": "Tarni - Gentle & Expressive (en-AU) e0f19302aa394eea8090b45ba677fcbc",
+  "mum": "Riya Mehta 0b464b2f4e2249a4b5a05e60eaf41e7e",
+  "dad": "Mujeeb Voice a9b17fe39f634aa9a6852786cb8c454d",
+  "aizah": "Pixie Piper - Friendly 00c1335e20a547639d4ac7ebd7f9df29",
+  "jazaa": "Little Annie 9014258b76904d81b7091363d5a4a48b",
+  "hamd": "Toby - Upbeat (en-AU), pitch +2, 67a1aebae3dd45ebb41eb7cb2c16f4f4",
+  "kids": "Aizah + Jazaa + Hamd mixed"
  },
  "takes": [
   {
-   "take": "T01_narrator",
+   "take": "L01_narrator",
    "speaker": "narrator",
    "lines": [
     {
@@ -28,7 +28,13 @@
      "spoken": "In a happy little house in Sydney lived the Rehman family.",
      "hero": "the Rehman House sign at sunset",
      "typed": ""
-    },
+    }
+   ]
+  },
+  {
+   "take": "L02_narrator",
+   "speaker": "narrator",
+   "lines": [
     {
      "id": 2,
      "text": "Mum, Dad, big brother Hamd, Aizah, and little Jazaa.",
@@ -39,7 +45,7 @@
    ]
   },
   {
-   "take": "T02_hamd",
+   "take": "L03_hamd",
    "speaker": "hamd",
    "lines": [
     {
@@ -52,7 +58,7 @@
    ]
   },
   {
-   "take": "T03_dad",
+   "take": "L04_dad",
    "speaker": "dad",
    "lines": [
     {
@@ -65,7 +71,7 @@
    ]
   },
   {
-   "take": "T04_jazaa",
+   "take": "L05_jazaa",
    "speaker": "jazaa",
    "lines": [
     {
@@ -78,7 +84,7 @@
    ]
   },
   {
-   "take": "T05_narrator",
+   "take": "L06_narrator",
    "speaker": "narrator",
    "lines": [
     {
@@ -91,7 +97,7 @@
    ]
   },
   {
-   "take": "T06_mum",
+   "take": "L07_mum",
    "speaker": "mum",
    "lines": [
     {
@@ -100,7 +106,13 @@
      "spoken": "Dad works long days, and I work hard too, so you can have food, school and a warm home.",
      "hero": "Mum in the kitchen; Dad leaving for work at dawn",
      "typed": ""
-    },
+    }
+   ]
+  },
+  {
+   "take": "L08_mum",
+   "speaker": "mum",
+   "lines": [
     {
      "id": 8,
      "text": "That's why we spend wisely, and buy only what we really need.",
@@ -111,7 +123,7 @@
    ]
   },
   {
-   "take": "T07_aizah",
+   "take": "L09_aizah",
    "speaker": "aizah",
    "lines": [
     {
@@ -124,7 +136,7 @@
    ]
   },
   {
-   "take": "T08_mum",
+   "take": "L10_mum",
    "speaker": "mum",
    "lines": [
     {
@@ -137,7 +149,7 @@
    ]
   },
   {
-   "take": "T09_narrator",
+   "take": "L11_narrator",
    "speaker": "narrator",
    "lines": [
     {
@@ -150,7 +162,7 @@
    ]
   },
   {
-   "take": "T10_dad",
+   "take": "L12_dad",
    "speaker": "dad",
    "lines": [
     {
@@ -163,7 +175,7 @@
    ]
   },
   {
-   "take": "T11_jazaa",
+   "take": "L13_jazaa",
    "speaker": "jazaa",
    "lines": [
     {
@@ -176,7 +188,7 @@
    ]
   },
   {
-   "take": "T12_narrator",
+   "take": "L14_narrator",
    "speaker": "narrator",
    "lines": [
     {
@@ -189,7 +201,7 @@
    ]
   },
   {
-   "take": "T13_hamd",
+   "take": "L15_hamd",
    "speaker": "hamd",
    "lines": [
     {
@@ -202,7 +214,7 @@
    ]
   },
   {
-   "take": "T14_dad",
+   "take": "L16_dad",
    "speaker": "dad",
    "lines": [
     {
@@ -215,7 +227,7 @@
    ]
   },
   {
-   "take": "T15_narrator",
+   "take": "L17_narrator",
    "speaker": "narrator",
    "lines": [
     {
@@ -228,7 +240,7 @@
    ]
   },
   {
-   "take": "T16_aizah",
+   "take": "L18_aizah",
    "speaker": "aizah",
    "lines": [
     {
@@ -241,7 +253,7 @@
    ]
   },
   {
-   "take": "T17_narrator",
+   "take": "L19_narrator",
    "speaker": "narrator",
    "lines": [
     {
@@ -254,7 +266,7 @@
    ]
   },
   {
-   "take": "T18_jazaa",
+   "take": "L20_jazaa",
    "speaker": "jazaa",
    "lines": [
     {
@@ -267,7 +279,7 @@
    ]
   },
   {
-   "take": "T19_dad",
+   "take": "L21_dad",
    "speaker": "dad",
    "lines": [
     {
@@ -280,7 +292,7 @@
    ]
   },
   {
-   "take": "T20_narrator",
+   "take": "L22_narrator",
    "speaker": "narrator",
    "lines": [
     {
@@ -293,7 +305,7 @@
    ]
   },
   {
-   "take": "T21_kids",
+   "take": "L23_kids",
    "speaker": "kids",
    "lines": [
     {

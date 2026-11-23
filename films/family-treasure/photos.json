@@ -1,5 +1,90 @@
 {
  "grade": "natural",
- "photos": [],
+ "photos": [
+  {
+   "id": "S01",
+   "what": "family house",
+   "file": "S01_family_house.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  },
+  {
+   "id": "S02",
+   "what": "treasure map",
+   "file": "S02_treasure_map.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  },
+  {
+   "id": "S03",
+   "what": "kitchen",
+   "file": "S03_kitchen.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  },
+  {
+   "id": "S04",
+   "what": "supermarket",
+   "file": "S04_supermarket.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  },
+  {
+   "id": "S05",
+   "what": "clean plate",
+   "file": "S05_clean_plate.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  },
+  {
+   "id": "S06",
+   "what": "neighbour",
+   "file": "S06_neighbour.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  },
+  {
+   "id": "S07",
+   "what": "sharing lunch",
+   "file": "S07_sharing_lunch.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  },
+  {
+   "id": "S08",
+   "what": "park walk away",
+   "file": "S08_park_walk_away.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  },
+  {
+   "id": "S09",
+   "what": "dad proud",
+   "file": "S09_dad_proud.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  },
+  {
+   "id": "S10",
+   "what": "grandpa tea",
+   "file": "S10_grandpa_tea.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  },
+  {
+   "id": "S11",
+   "what": "puzzled map",
+   "file": "S11_puzzled_map.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  },
+  {
+   "id": "S12",
+   "what": "family hug",
+   "file": "S12_family_hug.png",
+   "kind": "color",
+   "credit": "AI illustration (HeyGen, nano-banana-2) from the family's own cartoon references"
+  }
+ ],
  "recreations": []
 }
