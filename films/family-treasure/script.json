@@ -3,9 +3,9 @@
  "characters": {
   "mum": "Mum: white hijab, blue floral dress",
   "dad": "Dad: white kurta, short black hair",
-  "jazaa": "Jazaa, 9: white hijab, purple top",
-  "aizah": "Aizah, 8: white hijab, pink top with strawberries",
-  "hamd": "Hamd, 12: grey kameez, black hair",
+  "jazaa": "Jazaa, 8 (youngest): white hijab, pink top with strawberries",
+  "aizah": "Aizah, 9 (older sister): white hijab, purple top",
+  "hamd": "Hamd, 12 (eldest, big brother): grey kameez, black hair",
   "grandpa": "Grandpa: grey hair, glasses, beige cardigan (no lines)"
  },
  "voices": {
@@ -31,8 +31,8 @@
     },
     {
      "id": 2,
-     "text": "Mum, Dad, Jazaa, Aizah and their big brother Hamd.",
-     "spoken": "Mum, Dad, Jazaa, Aizah and their big brother Hamd.",
+     "text": "Mum, Dad, big brother Hamd, Aizah, and little Jazaa.",
+     "spoken": "Mum, Dad, big brother Hamd, Aizah, and little Jazaa.",
      "hero": "each family member lights up as their name is said",
      "typed": ""
     }
