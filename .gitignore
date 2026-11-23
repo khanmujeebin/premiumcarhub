@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 films/*/out/
+films/*/anim/*_raw.mp4
+films/*/anim/*_fit.mp4
+films/*/anim/joined.mp4
+films/*/anim/concat.txt
