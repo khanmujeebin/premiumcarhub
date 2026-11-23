@@ -1,0 +1,116 @@
+{
+ "segments": [
+  {
+   "id": 1,
+   "scene": "T01_hook",
+   "caption": "Hiring slows. Rates rise. The pay packet buys a little less every week.",
+   "vo": "Hiring slows. Rates rise. The pay packet buys a little less every week.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 2,
+   "scene": "T01_hook",
+   "caption": "For millions of Australians, the kitchen-table maths no longer adds up.",
+   "vo": "For millions of Australians, the kitchen-table maths no longer adds up.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 3,
+   "scene": "T01_hook",
+   "caption": "I'm Mujeeb, and I've written two books about what we do next.",
+   "vo": "I'm Mujeeb, and I've written two books about what we do next.",
+   "gap_after": 0.8
+  },
+  {
+   "id": 4,
+   "scene": "T02_book_one",
+   "caption": "Book one is Hope Without Illusions.",
+   "vo": "Book one is Hope Without Illusions.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 5,
+   "scene": "T02_book_one",
+   "caption": "A practical roadmap to jobs, resilience and affordability.",
+   "vo": "A practical roadmap to jobs, resilience and affordability.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 6,
+   "scene": "T02_book_one",
+   "caption": "It shows how Australia can build world-class infrastructure and real manufacturing.",
+   "vo": "It shows how Australia can build world-class infrastructure and real manufacturing.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 7,
+   "scene": "T02_book_one",
+   "caption": "It's out now on Amazon.",
+   "vo": "It's out now on Amazon.",
+   "gap_after": 1.0
+  },
+  {
+   "id": 8,
+   "scene": "T03_book_two",
+   "caption": "And this week, book two arrives.",
+   "vo": "And this week, book two arrives.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 9,
+   "scene": "T03_book_two",
+   "caption": "Australian Economy Under Pressure.",
+   "vo": "Australian Economy Under Pressure.",
+   "gap_after": 0.7
+  },
+  {
+   "id": 10,
+   "scene": "T03_book_two",
+   "caption": "How five rate rises in 2026 flowed through to mortgages and cash flow.",
+   "vo": "How five rate rises in twenty twenty-six flowed through to mortgages and cash flow.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 11,
+   "scene": "T03_book_two",
+   "caption": "Why your council rates keep rising, even when your home is worth less.",
+   "vo": "Why your council rates keep rising, even when your home is worth less.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 12,
+   "scene": "T03_book_two",
+   "caption": "What Snowy 2.0, Inland Rail and Sydney's light rail reveal about world-class promises.",
+   "vo": "What Snowy two point oh, Inland Rail and Sydney's light rail reveal about world-class promises.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 13,
+   "scene": "T03_book_two",
+   "caption": "And a 90-day action plan for households and small businesses.",
+   "vo": "And a ninety-day action plan for households and small businesses.",
+   "gap_after": 1.0
+  },
+  {
+   "id": 14,
+   "scene": "T04_close",
+   "caption": "I've delivered infrastructure projects, built homes and run small businesses here.",
+   "vo": "I've delivered infrastructure projects, built homes and run small businesses here.",
+   "gap_after": 0.45
+  },
+  {
+   "id": 15,
+   "scene": "T04_close",
+   "caption": "The squeeze is real. So is the way forward.",
+   "vo": "The squeeze is real. So is the way forward.",
+   "gap_after": 0.8
+  },
+  {
+   "id": 16,
+   "scene": "T04_close",
+   "caption": "Hope Without Illusions is on Amazon now. Australian Economy Under Pressure launches this week.",
+   "vo": "Hope Without Illusions is on Amazon now. Australian Economy Under Pressure launches this week.",
+   "gap_after": 1.5
+  }
+ ]
+}

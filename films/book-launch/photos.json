@@ -1,0 +1,10 @@
+{
+ "grade": "natural",
+ "photos": [
+  {"id": "B1", "what": "Hope Without Illusions, front cover", "file": "book1_cover.jpg", "kind": "color", "credit": "Cover supplied by the author"},
+  {"id": "AU", "what": "Author portrait, from the Book 1 cover", "file": "book1_cover.jpg", "kind": "color", "crop": [0.0, 0.40, 1.0, 0.895], "credit": "Supplied by the author"},
+  {"id": "B2", "what": "Australian Economy Under Pressure, front cover", "file": "book2_spread.jpg", "kind": "color", "crop": [0.518, 0.035, 0.978, 0.965], "credit": "Cover supplied by the author"},
+  {"id": "BK", "what": "Australian Economy Under Pressure, back cover", "file": "book2_spread.jpg", "kind": "color", "crop": [0.022, 0.035, 0.482, 0.965], "credit": "Cover supplied by the author"}
+ ],
+ "recreations": []
+}

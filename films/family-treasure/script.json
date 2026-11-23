@@ -1,0 +1,326 @@
+{
+ "title": "The Rehman Family Treasure",
+ "characters": {
+  "mum": "Mum: white hijab, blue floral dress",
+  "dad": "Dad: white kurta, short black hair",
+  "jazaa": "Jazaa, 8 (youngest): white hijab, pink top with strawberries",
+  "aizah": "Aizah, 9 (older sister): white hijab, purple top",
+  "hamd": "Hamd, 12 (eldest, big brother): grey kameez, black hair",
+  "grandpa": "Grandpa: grey hair, glasses, beige cardigan (no lines)"
+ },
+ "voices": {
+  "narrator": "Tarni - Gentle & Expressive (en-AU) e0f19302aa394eea8090b45ba677fcbc",
+  "mum": "Riya Mehta 0b464b2f4e2249a4b5a05e60eaf41e7e",
+  "dad": "Mujeeb Voice a9b17fe39f634aa9a6852786cb8c454d",
+  "aizah": "Pixie Piper - Friendly 00c1335e20a547639d4ac7ebd7f9df29",
+  "jazaa": "Little Annie 9014258b76904d81b7091363d5a4a48b",
+  "hamd": "Toby - Upbeat (en-AU), pitch +2, 67a1aebae3dd45ebb41eb7cb2c16f4f4",
+  "kids": "Aizah + Jazaa + Hamd mixed"
+ },
+ "takes": [
+  {
+   "take": "L01_narrator",
+   "speaker": "narrator",
+   "lines": [
+    {
+     "id": 1,
+     "text": "In a happy little house in Sydney lived the Rehman family.",
+     "spoken": "In a happy little house in Sydney lived the Rehman family.",
+     "hero": "the Rehman House sign at sunset",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L02_narrator",
+   "speaker": "narrator",
+   "lines": [
+    {
+     "id": 2,
+     "text": "Mum, Dad, big brother Hamd, Aizah, and little Jazaa.",
+     "spoken": "Mum, Dad, big brother Hamd, Aizah, and little Jazaa.",
+     "hero": "each family member lights up as their name is said",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L03_hamd",
+   "speaker": "hamd",
+   "lines": [
+    {
+     "id": 3,
+     "text": "Dad, my friend says the family with the most money wins. Are we rich?",
+     "spoken": "Dad, my friend says the family with the most money wins. Are we rich?",
+     "hero": "Hamd at the dinner table, curious",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L04_dad",
+   "speaker": "dad",
+   "lines": [
+    {
+     "id": 4,
+     "text": "Ah, Hamd. We have a treasure bigger than any money. Shall we find it together?",
+     "spoken": "Ah, Hamd. We have a treasure bigger than any money. Shall we find it together?",
+     "hero": "Dad smiling, a treasure map unrolls",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L05_jazaa",
+   "speaker": "jazaa",
+   "lines": [
+    {
+     "id": 5,
+     "text": "A treasure hunt! Yes!",
+     "spoken": "A treasure hunt! Yes!",
+     "hero": "the girls cheering",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L06_narrator",
+   "speaker": "narrator",
+   "lines": [
+    {
+     "id": 6,
+     "text": "Clue number one was in the kitchen.",
+     "spoken": "Clue number one was in the kitchen.",
+     "hero": "CLUE 1 card, the kitchen",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L07_mum",
+   "speaker": "mum",
+   "lines": [
+    {
+     "id": 7,
+     "text": "Dad works long days, and I work hard too, so you can have food, school and a warm home.",
+     "spoken": "Dad works long days, and I work hard too, so you can have food, school and a warm home.",
+     "hero": "Mum in the kitchen; Dad leaving for work at dawn",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L08_mum",
+   "speaker": "mum",
+   "lines": [
+    {
+     "id": 8,
+     "text": "That's why we spend wisely, and buy only what we really need.",
+     "spoken": "That's why we spend wisely, and buy only what we really need.",
+     "hero": "a shopping list: needs ticked, wants crossed",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L09_aizah",
+   "speaker": "aizah",
+   "lines": [
+    {
+     "id": 9,
+     "text": "And we never waste food, right Mum?",
+     "spoken": "And we never waste food, right Mum?",
+     "hero": "Aizah with a clean plate",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L10_mum",
+   "speaker": "mum",
+   "lines": [
+    {
+     "id": 10,
+     "text": "Never. Take a little, finish it all, and say Alhamdulillah.",
+     "spoken": "Never. Take a little, finish it all, and say Alhamdulillah.",
+     "hero": "Mum hugging Aizah",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L11_narrator",
+   "speaker": "narrator",
+   "lines": [
+    {
+     "id": 11,
+     "text": "Clue number two was at the front door, with a basket of fruit and warm bread.",
+     "spoken": "Clue number two was at the front door, with a basket of fruit and warm bread.",
+     "hero": "CLUE 2 card, the basket",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L12_dad",
+   "speaker": "dad",
+   "lines": [
+    {
+     "id": 12,
+     "text": "Uncle Yusuf next door is unwell today. Let's share with him.",
+     "spoken": "Uncle Yusuf next door is unwell today. Let's share with him.",
+     "hero": "the family at the neighbour's door",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L13_jazaa",
+   "speaker": "jazaa",
+   "lines": [
+    {
+     "id": 13,
+     "text": "And I'll share my lunch with my friend Mia. She forgot hers!",
+     "spoken": "And I'll share my lunch with my friend Mia. She forgot hers!",
+     "hero": "Jazaa sharing lunch at school",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L14_narrator",
+   "speaker": "narrator",
+   "lines": [
+    {
+     "id": 14,
+     "text": "Clue number three came on the way home from the park.",
+     "spoken": "Clue number three came on the way home from the park.",
+     "hero": "CLUE 3 card, the park path",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L15_hamd",
+   "speaker": "hamd",
+   "lines": [
+    {
+     "id": 15,
+     "text": "Some boys wanted me to skip school and be mean to a new kid. I said no, and walked away.",
+     "spoken": "Some boys wanted me to skip school and be mean to a new kid. I said no, and walked away.",
+     "hero": "Hamd turning away from a group of boys",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L16_dad",
+   "speaker": "dad",
+   "lines": [
+    {
+     "id": 16,
+     "text": "I'm proud of you. Good friends make you better. Choose them carefully.",
+     "spoken": "I'm proud of you. Good friends make you better. Choose them carefully.",
+     "hero": "Dad's hand on Hamd's shoulder",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L17_narrator",
+   "speaker": "narrator",
+   "lines": [
+    {
+     "id": 17,
+     "text": "The last clue led to Grandpa's bench.",
+     "spoken": "The last clue led to Grandpa's bench.",
+     "hero": "CLUE 4 card, Grandpa on his bench",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L18_aizah",
+   "speaker": "aizah",
+   "lines": [
+    {
+     "id": 18,
+     "text": "Salaam, Grandpa! Let me carry your tea for you.",
+     "spoken": "Salaam, Grandpa! Let me carry your tea for you.",
+     "hero": "Aizah carrying Grandpa's cup",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L19_narrator",
+   "speaker": "narrator",
+   "lines": [
+    {
+     "id": 19,
+     "text": "Grandpa smiled the biggest smile of all.",
+     "spoken": "Grandpa smiled the biggest smile of all.",
+     "hero": "Grandpa beaming",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L20_jazaa",
+   "speaker": "jazaa",
+   "lines": [
+    {
+     "id": 20,
+     "text": "Dad, we found every clue. But where's the treasure?",
+     "spoken": "Dad, we found every clue. But where's the treasure?",
+     "hero": "the kids puzzled, empty map",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L21_dad",
+   "speaker": "dad",
+   "lines": [
+    {
+     "id": 21,
+     "text": "Look around you. Mum, Grandpa, all of us together. Our family is the treasure.",
+     "spoken": "Look around you. Mum, Grandpa, all of us together. Our family is the treasure.",
+     "hero": "pull back: the whole family together",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L22_narrator",
+   "speaker": "narrator",
+   "lines": [
+    {
+     "id": 22,
+     "text": "Spend wisely. Waste nothing. Help others. Choose good friends. Respect your elders.",
+     "spoken": "Spend wisely. Waste nothing. Help others. Choose good friends. Respect your elders.",
+     "hero": "five lesson cards in a row",
+     "typed": ""
+    }
+   ]
+  },
+  {
+   "take": "L23_kids",
+   "speaker": "kids",
+   "lines": [
+    {
+     "id": 23,
+     "text": "And love your family most of all!",
+     "spoken": "And love your family most of all!",
+     "hero": "family hug, hearts",
+     "typed": "",
+     "gap_after": 1.8
+    }
+   ]
+  }
+ ],
+ "fact_notes": [
+  "Fiction. Characters and art style taken from the user's earlier HeyGen cartoon clips (family dinner, Rehman House, Grandpa's bench).",
+  "Uncle Yusuf and Mia are invented side characters."
+ ]
+}

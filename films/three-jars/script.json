@@ -1,0 +1,75 @@
+{
+ "title": "Zara and the Three Jars",
+ "voices": {"narrator": "warm storyteller (HeyGen public voice)", "zara": "young girl (HeyGen public voice)", "grandpa": "Mujeeb Voice (your clone)"},
+ "takes": [
+  {"take": "T01_narrator", "speaker": "narrator", "lines": [
+   {"id": 1, "text": "This is Zara. She is eight years old, and every Saturday she gets $10.",
+    "spoken": "This is Zara. She is eight years old, and every Saturday she gets ten dollars.",
+    "hero": "Zara waving, the title above her", "typed": "ZARA AND THE THREE JARS"},
+   {"id": 2, "text": "And every Saturday, the money disappears.",
+    "spoken": "And every Saturday, the money disappears.",
+    "hero": "coins pop off one by one", "typed": ""}
+  ]},
+  {"take": "T02_zara", "speaker": "zara", "lines": [
+   {"id": 3, "text": "Lollies, stickers, a bouncy ball... where did it all go?",
+    "spoken": "Lollies, stickers, a bouncy ball... where did it all go?",
+    "hero": "Zara holding an empty purse, the treats scattered around her", "typed": ""}
+  ]},
+  {"take": "T03_narrator", "speaker": "narrator", "lines": [
+   {"id": 4, "text": "Then one day, Zara saw it. A rainbow kite in the shop window. $20!",
+    "spoken": "Then one day, Zara saw it. A rainbow kite in the shop window. Twenty dollars!",
+    "hero": "the rainbow kite; a price tag swings in on 'twenty'", "typed": "$20 price tag"}
+  ]},
+  {"take": "T04_zara", "speaker": "zara", "lines": [
+   {"id": 5, "text": "Grandpa! I need twenty dollars, right now!",
+    "spoken": "Grandpa! I need twenty dollars, right now!",
+    "hero": "Zara running to Grandpa", "typed": ""}
+  ]},
+  {"take": "T05_grandpa", "speaker": "grandpa", "lines": [
+   {"id": 6, "text": "Right now? Then let's make a plan. Here are three jars.",
+    "spoken": "Right now? Then let's make a plan. Here are three jars.",
+    "hero": "Grandpa smiling, three jars on the table", "typed": ""},
+   {"id": 7, "text": "Spend, for small treats. Save, for big dreams. Share, to help others.",
+    "spoken": "Spend, for small treats. Save, for big dreams. Share, to help others.",
+    "hero": "three jar cards pop up one per word", "typed": "$3 · $5 · $2 on the jar cards"},
+   {"id": 8, "text": "Put five dollars in Save every week, and watch what happens.",
+    "spoken": "Put five dollars in Save every week, and watch what happens.",
+    "hero": "the SAVE jar, camera pushes in", "typed": ""}
+  ]},
+  {"take": "T06_narrator", "speaker": "narrator", "lines": [
+   {"id": 9, "text": "Week one, five dollars. Week two, ten. Week three, fifteen.",
+    "spoken": "Week one, five dollars. Week two, ten. Week three, fifteen.",
+    "hero": "a calendar strip; the jar fills; counter ticks 5, 10, 15", "typed": "WEEK 1 · 2 · 3"},
+   {"id": 10, "text": "Some days Zara wanted to give up. But the jar kept getting heavier.",
+    "spoken": "Some days Zara wanted to give up. But the jar kept getting heavier.",
+    "hero": "Zara looking at the jar, tempted by the lolly shop", "typed": ""},
+   {"id": 11, "text": "Week four... $20!",
+    "spoken": "Week four... twenty dollars!",
+    "hero": "counter slams to 20, confetti", "typed": "$20"}
+  ]},
+  {"take": "T07_zara", "speaker": "zara", "lines": [
+   {"id": 12, "text": "I did it! And there's still money in my Share jar!",
+    "spoken": "I did it! And there's still money in my Share jar!",
+    "hero": "Zara jumping with joy", "typed": ""}
+  ]},
+  {"take": "T08_narrator", "speaker": "narrator", "lines": [
+   {"id": 13, "text": "So Zara bought her kite, and helped her friend Leo fix his broken one too.",
+    "spoken": "So Zara bought her kite, and helped her friend Leo fix his broken one too.",
+    "hero": "two kites flying over a park", "typed": ""}
+  ]},
+  {"take": "T09_grandpa", "speaker": "grandpa", "lines": [
+   {"id": 14, "text": "Small coins, saved with patience, become big dreams.",
+    "spoken": "Small coins, saved with patience, become big dreams.",
+    "hero": "Grandpa and Zara watching the kites", "typed": ""}
+  ]},
+  {"take": "T10_narrator", "speaker": "narrator", "lines": [
+   {"id": 15, "text": "Spend a little. Save a lot. Share with love.",
+    "spoken": "Spend a little. Save a lot. Share with love.",
+    "hero": "pull back: the three jars and the whole story", "typed": "THE THREE JARS", "gap_after": 1.5}
+  ]}
+ ],
+ "fact_notes": [
+  "Fiction. Money maths checked: $10 a week = $3 spend + $5 save + $2 share; 4 weeks of saving = $20; the Share jar holds $8 after 4 weeks, which helps Leo.",
+  "All characters are invented; illustrations will be AI-generated in one cartoon style."
+ ]
+}

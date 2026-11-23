@@ -1,0 +1,152 @@
+{
+ "title": "The Australia Renewal Series",
+ "takes": [
+  {
+   "take": "T01_hook",
+   "lines": [
+    {
+     "id": 1,
+     "text": "Hiring slows. Rates rise. The pay packet buys a little less every week.",
+     "spoken": "Hiring slows. Rates rise. The pay packet buys a little less every week.",
+     "hero": "three cards stamp on in turn: HIRING SLOWS, RATES RISE, falling bar chart",
+     "typed": "HIRING SLOWS · RATES RISE"
+    },
+    {
+     "id": 2,
+     "text": "For millions of Australians, the kitchen-table maths no longer adds up.",
+     "spoken": "For millions of Australians, the kitchen-table maths no longer adds up.",
+     "hero": "big type; 'NO LONGER ADDS UP' lands on 'adds up'",
+     "typed": "THE MATHS NO LONGER ADDS UP"
+    },
+    {
+     "id": 3,
+     "text": "I'm Mujeeb, and I've written two books about what we do next.",
+     "spoken": "I'm Mujeeb, and I've written two books about what we do next.",
+     "hero": "author portrait and the name strip on the Book 1 cover",
+     "typed": "",
+     "gap_after": 0.8
+    }
+   ]
+  },
+  {
+   "take": "T02_book_one",
+   "lines": [
+    {
+     "id": 4,
+     "text": "Book one is Hope Without Illusions.",
+     "spoken": "Book one is Hope Without Illusions.",
+     "hero": "Book 1 cover, full",
+     "typed": "BOOK 1"
+    },
+    {
+     "id": 5,
+     "text": "A practical roadmap to jobs, resilience and affordability.",
+     "spoken": "A practical roadmap to jobs, resilience and affordability.",
+     "hero": "three words stamp on, one per spoken word",
+     "typed": "JOBS · RESILIENCE · AFFORDABILITY"
+    },
+    {
+     "id": 6,
+     "text": "It shows how Australia can build world-class infrastructure and real manufacturing.",
+     "spoken": "It shows how Australia can build world-class infrastructure and real manufacturing.",
+     "hero": "highlight on the cover subtitle",
+     "typed": ""
+    },
+    {
+     "id": 7,
+     "text": "It's out now on Amazon.",
+     "spoken": "It's out now on Amazon.",
+     "hero": "'AVAILABLE NOW' stamp slams onto the Book 1 cover on 'Amazon'",
+     "typed": "AVAILABLE NOW",
+     "gap_after": 1.0
+    }
+   ]
+  },
+  {
+   "take": "T03_book_two",
+   "lines": [
+    {
+     "id": 8,
+     "text": "And this week, book two arrives.",
+     "spoken": "And this week, book two arrives.",
+     "hero": "camera travels along a gold line to the second cover",
+     "typed": "BOOK 2"
+    },
+    {
+     "id": 9,
+     "text": "Australian Economy Under Pressure.",
+     "spoken": "Australian Economy Under Pressure.",
+     "hero": "Book 2 front cover, full; the falling chart",
+     "typed": "",
+     "gap_after": 0.7
+    },
+    {
+     "id": 10,
+     "text": "How five rate rises in 2026 flowed through to mortgages and cash flow.",
+     "spoken": "How five rate rises in twenty twenty-six flowed through to mortgages and cash flow.",
+     "hero": "counter rolls 0 to 5",
+     "typed": "5 RATE RISES · 2026"
+    },
+    {
+     "id": 11,
+     "text": "Why your council rates keep rising, even when your home is worth less.",
+     "spoken": "Why your council rates keep rising, even when your home is worth less.",
+     "hero": "two arrows: rates up, home value down",
+     "typed": "COUNCIL RATES ↑ · HOME VALUE ↓"
+    },
+    {
+     "id": 12,
+     "text": "What Snowy 2.0, Inland Rail and Sydney's light rail reveal about world-class promises.",
+     "spoken": "What Snowy two point oh, Inland Rail and Sydney's light rail reveal about world-class promises.",
+     "hero": "three project cards; 'WORLD-CLASS?' stamp",
+     "typed": "SNOWY 2.0 · INLAND RAIL · SYDNEY LIGHT RAIL"
+    },
+    {
+     "id": 13,
+     "text": "And a 90-day action plan for households and small businesses.",
+     "spoken": "And a ninety-day action plan for households and small businesses.",
+     "hero": "worksheet card, rows tick on",
+     "typed": "WORKSHEETS INCLUDED",
+     "gap_after": 1.0
+    }
+   ]
+  },
+  {
+   "take": "T04_close",
+   "lines": [
+    {
+     "id": 14,
+     "text": "I've delivered infrastructure projects, built homes and run small businesses here.",
+     "spoken": "I've delivered infrastructure projects, built homes and run small businesses here.",
+     "hero": "author photo from the back cover",
+     "typed": ""
+    },
+    {
+     "id": 15,
+     "text": "The squeeze is real. So is the way forward.",
+     "spoken": "The squeeze is real. So is the way forward.",
+     "hero": "the real back-cover headline, camera pushes in; orange half lands on 'way forward'",
+     "typed": "",
+     "gap_after": 0.8
+    },
+    {
+     "id": 16,
+     "text": "Hope Without Illusions is on Amazon now. Australian Economy Under Pressure launches this week.",
+     "spoken": "Hope Without Illusions is on Amazon now. Australian Economy Under Pressure launches this week.",
+     "hero": "pull back: both covers side by side under the series name",
+     "typed": "THE AUSTRALIA RENEWAL SERIES",
+     "gap_after": 1.5
+    }
+   ]
+  }
+ ],
+ "fact_notes": [
+  "Book 1 title, subtitle and tagline: from the Book 1 cover supplied by the author.",
+  "Book 1 is on Amazon: stated by the author in chat.",
+  "Book 2 launches this week: stated by the author in chat.",
+  "Book 2 title, subtitle, 'Book 2 of The Australia Renewal Series', back-cover copy and 'Inside you'll learn' list: from the Book 2 cover supplied by the author.",
+  "Lines 1-2 paraphrase the Book 2 back-cover blurb ('Hiring slows. Rates rise... kitchen-table maths that no longer adds up').",
+  "Five rate rises in 2026: the book's own claim, per its back cover; the film quotes the book, not an independent fact.",
+  "Author bio (line 14): back cover says network and security architect, small-business owner, home builder; delivered technology and infrastructure projects for Australian government and energy organisations; built businesses in hospitality and construction."
+ ]
+}
